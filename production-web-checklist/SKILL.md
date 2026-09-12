@@ -2,7 +2,7 @@
 name: production-web-checklist
 description: "Audit web design, SEO, accessibility, and security."
 version: 0.2.0
-author: Daksh Agrawal (@dakshagrawa), Hermes Agent
+author: Daksh Agrawal (@dakshagrawa)
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
