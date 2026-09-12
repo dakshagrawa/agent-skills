@@ -27,7 +27,7 @@ def test_frontmatter_has_repository_contract():
     description = frontmatter["description"]
     assert description.endswith(".")
     assert len(description) <= 60
-    assert frontmatter["version"] == "0.3.0"
+    assert frontmatter["version"] == "0.1.0"
     assert frontmatter["author"].startswith("Daksh Agrawal")
     assert frontmatter["license"] == "MIT"
     assert frontmatter["platforms"] == ["linux", "macos", "windows"]
