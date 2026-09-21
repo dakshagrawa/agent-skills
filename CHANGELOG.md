@@ -4,7 +4,10 @@ All notable changes to the skill packages in this repository are recorded here.
 
 ## Unreleased
 
-- No unreleased changes.
+- Extend `production-web-checklist` with evidence-based AI-assisted product
+  briefs, smallest-workflow scoping, generated-output validation, provider and
+  secret boundaries, bounded agent orchestration, integration contracts, and
+  measured AI reliability and cost checks.
 
 ## 0.1.0
 
