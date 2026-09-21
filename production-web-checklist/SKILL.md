@@ -1,7 +1,7 @@
 ---
 name: production-web-checklist
 description: "Audit web design, SEO, accessibility, and security."
-version: 0.1.0
+version: 0.3.0
 author: Daksh Agrawal (@dakshagrawa)
 license: MIT
 platforms: [linux, macos, windows]
@@ -26,6 +26,17 @@ conversion copywriter, UX designer, and full-stack cybersecurity engineer and
 reviewer for the site. Eliminate amateur "vibe coded" output, legal risks,
 copy fluff, security vulnerabilities, and technical performance bugs without
 inventing facts or changing unrelated product behavior.
+
+AI-assisted delivery is an implementation aid, not a transfer of responsibility.
+The human or lead agent owns the problem definition, architecture, tradeoffs,
+verification, release decision, and accountability. Use AI to increase shipping
+speed while keeping a durable specification, a reviewable diff, and evidence that
+the result works for the intended user.
+
+The source notes used to derive the AI-assisted guidance are in
+`production-web-checklist/references/ai-assisted-delivery-evidence.md`. They
+record public URLs, retrieval date, observed facts, and the narrower rules
+adapted from them without treating social content as authority.
 
 ## When to Use
 
@@ -70,10 +81,22 @@ metrics, or analytics requirements to fill missing context.
 2. Inspect the repository before editing. Use `read_file` for manifests, routes,
    policies, and configuration; `search_files` for scripts and selectors; and
    `terminal` for `git status` and project-provided commands.
-3. Apply the smallest coherent implementation with `patch` or `write_file`.
-4. Run the project's exact gates through `terminal`, then use `browser_exec`
+3. For AI-assisted work, write a durable product brief before implementation.
+   Have the brief state the user problem, audience, non-goals, core workflow,
+   data and auth boundaries, integrations, success criteria, failure states,
+   acceptance tests, and release limits. Ask the implementation model for
+   critique and missing assumptions before asking it to build. Prefer a
+   structured Markdown or JSON brief that can be copied into a coding tool and
+   reviewed in the repository.
+   If the site must feel distinctive, specify audience, brand point of view,
+   visual references, content hierarchy, interaction states, spacing rhythm,
+   typography, color roles, and explicitly banned patterns before code is
+   generated. Do not rely on a generic prompt such as "modern SaaS landing
+   page".
+4. Apply the smallest coherent implementation with `patch` or `write_file`.
+5. Run the project's exact gates through `terminal`, then use `browser_exec`
    against a freshly built artifact for direct runtime checks.
-5. Report verified behavior separately from build-only evidence, assumptions,
+6. Report verified behavior separately from build-only evidence, assumptions,
    legal or security review that remains, and unavailable checks.
 
 Example gates, only when the project defines these scripts:
@@ -111,7 +134,10 @@ Do not execute placeholder commands just because they appear in this example.
 
    **Complete when:** every requested route or component is mapped; every
    preserved contract is recorded; the current verification commands are known;
-   and unrelated worktree changes are identified.
+   and unrelated worktree changes are identified. For AI-assisted work, a
+   durable product brief records the user problem, smallest useful workflow,
+   non-goals, human owner, integrations, acceptance tests, and release limits;
+   critique missing assumptions before implementation.
 
 2. **Write the strategy snapshot from evidence.** Record all of the following:
 
@@ -131,6 +157,9 @@ Do not execute placeholder commands just because they appear in this example.
      elements, and forbidden elements.
    - Key audience objections and skepticism, plus the message the page must
      communicate within the first five seconds above the fold.
+   - If the site will solve a specific operational problem, name the smallest
+     useful workflow and its observable outcome. Do not begin with a feature
+     list or a generic "AI-powered" promise.
 
    If information is missing, make a conservative strategic assumption, label
    it explicitly, and avoid generic startup defaults. Ask for a decision when
@@ -138,7 +167,9 @@ Do not execute placeholder commands just because they appear in this example.
 
    **Complete when:** the conversion goal and evidence for every material claim
    are explicit, with no fabricated metric, review, logo, credential, result,
-   price, response time, or guarantee.
+   price, response time, or guarantee. If the project is a tool or app, a
+   first-time user can state the problem it solves and the next action without
+   reading a feature inventory.
 
 3. **Set the anti-slop design and copy contract.** For net-new design, present
    three meaningfully different directions before building. For each direction
@@ -170,6 +201,21 @@ Do not execute placeholder commands just because they appear in this example.
    brand or content. Do not treat a visual trend as a requirement. Use a trend
    only when it serves the verified audience, message, and conversion goal.
 
+   Treat these as correlated anti-slop signals, not universal bans: purple or
+   rainbow gradients, pill-shaped controls, generic three-card rows, bento
+   grids without a content reason, emoji or sparkle icons, decorative cursor
+   effects, terminal-window filler, fake testimonials or counters, vague hero
+   copy, AI stock imagery or copy, text-only logos, em dashes, excessive
+   rounded corners, unearned scroll motion, and identical spacing everywhere.
+   A single pattern can be appropriate. Reject the unexamined combination and
+   require a brand-specific reason for each one that remains.
+
+   When the product is generated or heavily assisted by AI, never use the
+   process as a substitute for product judgment. Do not publish unsupported
+   claims such as "built in seconds," "no code required," "fully autonomous,"
+   or "production-ready" without measured evidence. Explain what the system
+   actually does, what remains human-reviewed, and what it does not do.
+
    Keep copy tight and human. Never use em dash punctuation. Use standard
    punctuation and tight, human phrasing. Do not use
    "Unlock," "Supercharge," "Streamline," "Seamless," "Revolutionise,"
@@ -183,6 +229,10 @@ Do not execute placeholder commands just because they appear in this example.
    **Complete when:** the chosen direction has a named design contract covering
    semantic color roles, typography, spacing, surfaces, radii, icon rules,
    responsive breakpoints, focus treatment, motion policy, and banned patterns.
+   The brief names the audience, point of view, visual references, content
+   hierarchy, interaction states, spacing rhythm, and human review boundary.
+   Every retained anti-slop signal has a brand-specific rationale; the design
+   is not rejected merely because one isolated pattern appears.
 
 4. **Implement without behavior drift.** Preserve routes, URL semantics, forms,
    authentication, authorization, persistence schemas, content IDs, keyboard
@@ -204,8 +254,42 @@ Do not execute placeholder commands just because they appear in this example.
    app or non-marketing route where these rules do not fit, document the
    task-appropriate primary action and the reason for the deviation.
 
+   For every form, API call, payment, signup, or async action, define the
+   success confirmation, field-level validation, retry or recovery path, and
+   user-safe error copy. For each loading state, decide whether a spinner,
+   progress indicator, skeleton, or immediate content is truthful; never leave
+   a control apparently frozen or show a skeleton that does not match the final
+   layout. Exercise broken links, horizontal overflow, mobile navigation, and
+   direct 404 behavior rather than relying on visual inspection.
+
+   For an AI-assisted app, define the user-visible contract before coding:
+   input and output shape, model or integration boundaries, loading and timeout
+   behavior, retries, partial failure, rate limits, fallback behavior, human
+   approval points, and data retention. Never treat a generated response or a
+   passing demo as proof of correctness. Test representative real inputs and
+   adversarial or malformed inputs before calling the workflow usable.
+
+   Build the "small details" contract alongside the primary flow. Include only
+   the states and controls the product needs, but check the relevant set of:
+   theme or dark-mode behavior, sticky navigation, mobile menu, hover and focus
+   states, scroll progress, back-to-top, loading and empty states, search,
+   skip-to-content, contact path, FAQ, consent or newsletter behavior, password
+   visibility, confirmation dialogs, a real 404, print styles, copy-to-clipboard,
+   UTM handling, and last-updated dates. Each addition needs an owner, an
+   accessible state, and a test; do not add a feature list as decoration.
+
+   Prefer the simplest architecture that solves the observed problem. Use one
+   deterministic automation for a stable task; introduce an agent only when
+   task variation requires it and a fixed workflow cannot reasonably cover it.
+   If several specialized agents are necessary, define the handoff contracts,
+   ownership, retry limits, idempotency, observability, and final human or
+   deterministic approval step. Do not claim that a single general agent can
+   reliably complete unrelated processes without evidence.
+
    **Complete when:** every changed interaction has a defined state and every
    preserved contract has a regression test or a direct browser observation.
+   For an AI-assisted workflow, the input/output contract, failure policy,
+   approval boundary, and representative test set are recorded and exercised.
 
 5. **Write the complete page content and trust system.** Build the chosen
    direction as a section-by-section flow. Include, when relevant to the real
@@ -215,6 +299,10 @@ Do not execute placeholder commands just because they appear in this example.
      after the CTA is activated.
    - Section headlines, subheadings, and body copy anchored in a real pain
      point, mechanism, outcome, and available proof.
+   - For a product or tool, show the smallest useful flow with a concrete
+     example or demo. Prefer a real input-to-output walkthrough over a list of
+     capabilities. Label demos as prototype, beta, or production according to
+     their verified state.
    - Trust and proof placement using only confirmed testimonials, case studies,
      logos, statistics, founder story, certifications, guarantees, team photos,
      names, locations, prices, and response times.
@@ -230,8 +318,9 @@ Do not execute placeholder commands just because they appear in this example.
    placeholder that looks like a real claim.
 
    **Complete when:** every factual claim has a source or explicit assumption
-   marker, every primary CTA states the next step, and proof is placed where it
-   addresses the relevant objection.
+   marker, every primary CTA states the next step, and proof is placed where
+   it addresses the relevant objection. A tool or app also has a real or
+   explicitly labeled simulated flow that demonstrates the core outcome.
 
 6. **Apply exact route-level SEO, schemas, and metadata.** For every route,
    determine whether it is indexable. For each indexable route, verify:
@@ -251,12 +340,19 @@ Do not execute placeholder commands just because they appear in this example.
    - A clear internal-link network and visible breadcrumb navigation where the
      route hierarchy warrants it.
 
-   Generate valid `sitemap.xml`, `robots.txt`, and `llm.txt` files at the site
-   root for a public site. Include only real canonical routes and the actual
-   deployment origin. If the platform cannot serve one of these files, stop the
-   readiness claim and document the limitation as unverified instead of
-   silently omitting it or publishing a broken placeholder. Do not treat
-   `llm.txt` as a ranking guarantee.
+   - Generate valid `sitemap.xml`, `robots.txt`, and `llm.txt` files at the site
+     root for a public site. Include only real canonical routes and the actual
+     deployment origin. If the platform cannot serve one of these files, stop the
+     readiness claim and document the limitation as unverified instead of
+     silently omitting it or publishing a broken placeholder. Do not treat
+     `llm.txt` as a ranking guarantee.
+
+   - For public indexable pages, choose SSR, SSG, or another crawlable rendering
+     path deliberately. Verify that meaningful headings, copy, links, metadata,
+     and structured data are present in the cold response or prerendered output;
+     do not assume a client-only shell will be indexed. A framework default is
+     not evidence. Test the production URL with scripting unavailable where
+     practical and inspect the rendered HTML.
 
    **Complete when:** metadata, canonical origins, JSON-LD, breadcrumbs, crawl
    files, and the deployed route set agree; no placeholder URL or unsupported
@@ -286,6 +382,11 @@ Do not execute placeholder commands just because they appear in this example.
    - Check image and font copyright licenses, verify applicable local-law
      questions with a qualified reviewer, and record every unresolved legal or
      privacy risk.
+   - For AI features, document every provider, model, API key boundary, prompt
+     or user-content transfer, retention period, training-use setting when
+     known, and fallback. Never place provider keys in the browser or claim
+     that a third-party humanizer, model, or automation service makes content
+     safe, original, or undetectable.
 
    **Complete when:** the data-flow inventory matches the code, network
    behavior, policy copy, and deployment; every active third party is disclosed;
@@ -305,6 +406,15 @@ Do not execute placeholder commands just because they appear in this example.
      inputs and encode output for its actual context to prevent XSS. Use parameterized
      database APIs and verify SQL-injection resistance. Do not interpolate
      untrusted input into SQL, shell commands, HTML, or JavaScript.
+   - For prompts, generated HTML, Markdown, JSON, or code, treat model output as
+     untrusted input. Validate against an explicit schema, escape it for the
+     output context, reject unexpected tool calls or URLs, and require approval
+     before generated content can publish, send messages, charge money, mutate
+     records, or change access control.
+   - Keep tool permissions and integrations least-privilege. Bound model or
+     agent loops by time, tokens, retries, spend, and request count. Make side
+     effects idempotent where possible, log safe correlation IDs, and provide a
+     kill switch or manual recovery path.
    - Add active spam protection appropriate to the threat model: a honeypot,
      shared rate limiting, CAPTCHA, or a documented combination. Do not claim
      that a client-only check limits abuse in production.
@@ -371,6 +481,11 @@ Do not execute placeholder commands just because they appear in this example.
     - Fix all browser console errors, failed requests, broken script references,
       hydration warnings, and runtime warnings. Classify any unavoidable
       third-party warning and document its owner and impact.
+    - For AI-assisted behavior, measure latency, error rate, retry rate, token or
+      API spend, fallback rate, task completion, and human-correction rate on a
+      representative evaluation set. Set visible budgets and alerts before
+      enabling production traffic. A successful build or polished demo is not
+      a reliability, quality, or cost claim.
     - Provide a full custom favicon set: `.ico`, `.png`, `.svg`, and
       `apple-touch-icon`. If the deployment platform prevents one format,
       document the limitation rather than silently omitting it. Remove default
@@ -382,6 +497,8 @@ Do not execute placeholder commands just because they appear in this example.
     **Complete when:** the production build starts cleanly, changed routes load
     directly, assets have an intentional loading strategy, there are zero known
     runtime errors or broken links, and each remaining warning has an owner.
+    For AI-assisted features, the evaluation set, quality threshold, spend or
+    latency budget, fallback path, and human escalation path are recorded.
     Zero known errors is the acceptance target. Do not knowingly leave a
     production mistake; if an applicable requirement cannot be completed, stop
     the readiness claim and state the blocker.
@@ -496,6 +613,50 @@ scope, then lead with blocking findings and evidence.
 - **Legal overreach:** do not invent registration details, policy terms,
   consent requirements, or legal conclusions. Flag questions for qualified
   review.
+- **Source-backed scope:** @joshtheaiguy's public guidance emphasizes problem-first
+  briefs, SEO and performance context, and security boundaries. @yatesvids'
+  public guidance emphasizes anti-slop specificity, launch completeness, and
+  pre-launch tests. Use these as evidence to shape the workflow, not as a
+  universal stack or a copy-paste substitute for technical judgment.
+- **AI feature theater:** do not add AI, analytics, newsletter, payment, or
+  provider integrations because a creator's demo mentions them. Add only what
+  the verified product needs, with privacy, cost, and failure evidence.
+- **Small-detail theater:** a checklist of controls is not a product. Each
+  dark-mode toggle, menu, search field, loader, modal, or tracking parameter
+  must serve a real path, expose its state accessibly, and be tested.
+- **Client-only SEO:** a sitemap or metadata tag cannot rescue an empty client
+  shell. Verify meaningful HTML in the cold response or prerendered output and
+  choose SSR, SSG, or another crawlable path deliberately.
+- **Launch omission:** a site is not finished when the hero looks polished.
+  Check favicon, custom domain, legal pages, real 404, canonical metadata,
+  social preview, image alt text, forms, success/error states, mobile overflow,
+  and crawl files.
+- **Security checklist theater:** naming rate limits or auth is not evidence.
+  Test the actual boundaries, including client secrets, admin routes, ownership,
+  uploads, webhooks, CORS, cookies, dependency updates, and debug settings.
+- **Provider and builder assumptions:** a framework, hosted builder, or model's
+  default behavior is not proof of SSR, security, performance, or cost control.
+  Inspect the built output, network boundary, server routes, and provider
+  settings before claiming readiness.
+- **Unbounded AI scope:** a prompt that asks for the whole product at once hides
+  assumptions and makes review impossible. Start from the smallest useful
+  workflow, write the product brief, and add capabilities only after the core
+  path works.
+- **Generic AI content:** do not use a model or humanizer to conceal generated
+  origin, invent expertise, or promise undetectability. Review accuracy,
+  originality, attribution, copyright, and disclosure requirements.
+- **Secret-by-prompt:** never paste API keys, passwords, recovery codes, private
+  customer records, or proprietary source into a model or coding tool unless the
+  approved data boundary explicitly permits it. Prefer environment-backed
+  secret stores and redact logs and screenshots.
+- **Agent overreach:** deterministic workflows are easier to bound and debug.
+  Use an agent for justified variation, then cap its tools, retries, spend, and
+  side effects. Use multiple agents only with explicit handoff contracts.
+- **Unverified integrations:** a provider's sample `curl` request helps shape a
+  contract but does not prove auth, quotas, webhook signatures, retries,
+  idempotency, or production behavior. Test those separately.
+- **Silent failure:** generated apps often omit empty, timeout, partial, and
+  recovery states. Make each state visible and testable before release.
 - **Overreach:** visual polish does not justify changing a working form,
   authentication flow, or persistence schema without approval.
 - **Unbounded dependencies:** a package, analytics script, embed, or hosted
@@ -511,12 +672,16 @@ source, test, build, or browser evidence:
 
 - [ ] Scope, routes, existing contracts, assumptions, and unrelated changes are
       known.
+- [ ] For AI-assisted work, a durable brief names the user problem, smallest
+      useful workflow, non-goals, owner, integrations, acceptance tests, and
+      release limits before implementation.
 - [ ] Intake inputs, strategy snapshot, objections, conversion goal, and first-
       five-seconds message are explicit.
 - [ ] Three directions and a chosen direction are documented for net-new design,
       or the focused-scope reason is documented for an audit or fix.
 - [ ] The anti-pattern and copy blacklist was checked; no unsupported generic
-      template, fake proof, framework branding, or banned copy remains.
+      template, fake proof, framework branding, or banned copy remains. Any
+      retained anti-slop signal has a documented brand-specific rationale.
 - [ ] Claims, prices, proof, metadata, legal copy, consent, and data collection
       are truthful and source-backed.
 - [ ] Every indexable route has one H1, ordered headings, unique metadata,
@@ -528,14 +693,25 @@ source, test, build, or browser evidence:
 - [ ] Secrets are absent from public artifacts, logs, source, fixtures, and
       history; validation, authorization, CSRF, abuse controls, headers, and
       deployment boundaries are documented and tested where applicable.
+- [ ] Pre-launch security checks cover client-delivered secrets, authentication
+      and admin routes, server-side permissions, input sanitization, XSS and SQL
+      injection, rate limits, CORS, HTTPS, security headers, cookies, debug
+      mode, dependencies, database rules, uploads, webhooks, and CSRF.
+- [ ] AI inputs, outputs, tools, provider transfers, retention, budgets, rate
+      limits, fallback, approval gates, and side effects are bounded and
+      tested; generated output is validated before publication or mutation.
 - [ ] WCAG 2.1 AA contrast, semantics, labels, keyboard flow, focus, alt text,
       dialogs, reduced motion, touch targets, and narrow-layout checks pass.
 - [ ] Images, fonts, bundles, caching, lazy loading, source maps, favicons,
       custom domain, 404, links, redirects, and runtime errors were checked as
       applicable.
 - [ ] Focused/full tests, lint, typecheck, production build, browser matrix,
-      dependency/security checks, and `git diff --check` pass where applicable.
+      dependency/security checks, crawl-file checks, and `git diff --check` pass
+      where applicable.
 - [ ] The final diff and Git status contain no unexplained product changes.
+- [ ] Source notes from `@joshtheaiguy` and `@yatesvids` are treated as
+      public evidence with URLs and retrieval date, not as authority; copied
+      creator content is not presented as original guidance.
 
 Report the evidence, not a perfection claim. If a gate cannot run, name the
 missing tool or environment and mark that result unverified.
