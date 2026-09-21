@@ -7,46 +7,128 @@ content.
 
 ## Sources
 
-- [Josh Hoeg Instagram profile](https://www.instagram.com/joshtheaiguy/)
-  describes work on AI systems, agents, automation, and SaaS, and says the
-  account shares what works and what does not.
+### Josh Hoeg, @joshtheaiguy
+
+- [Instagram profile](https://www.instagram.com/joshtheaiguy/). The public bio
+  describes AI systems, agents, automation, SaaS, and sharing what works and
+  what does not.
 - [AI Blogging Agent reel](https://www.instagram.com/joshtheaiguy/reel/DSRF_W7gFfW/)
-  recommends first fleshing out the idea with ChatGPT, asking for candid
-  critique, converting the result into a structured prompt for a coding tool,
-  separating provider API credentials from a chat account, and using documented
-  API examples when debugging webhooks or integrations. Its caption also
-  describes screenshot-based debugging and a second explanation when the first
-  fix fails.
+  recommends fleshing out an idea first, requesting candid critique, converting
+  it into a structured coding prompt, keeping provider API credentials separate
+  from a chat account, using documented API examples for webhook debugging, and
+  using screenshots plus a second explanation when the first fix fails.
 - [30 Apps in 30 Days reel](https://www.instagram.com/joshtheaiguy/reel/DSIaDc_gFul/)
   establishes a rapid, problem-led shipping challenge.
-- [Day 1 public cross-post](https://www.linkedin.com/posts/joshdhoeg_day-1-of-building-30-apps-in-30-days-comment-activity-7404984089314795521-Xzlc)
-  invites people to submit business or personal problems for small apps.
-- [Day 2 public cross-post](https://www.linkedin.com/posts/joshdhoeg_ruining-or-saving-marriages-im-not-activity-7405317174350745600-kqie)
-  shows the first app being live despite obvious bugs, mentions built-in
-  authentication and a connected database, and asks for the next problem.
-- [Day 7 public cross-post](https://www.linkedin.com/posts/joshdhoeg_launched-a-mobile-app-in-less-then-2-hours-activity-7407953969014239233-5tRv)
-  starts from a cold-calling problem, describes a mobile build, and shows a
-  product-requirements-first workflow before a mobile app builder, device
-  preview, and possible store submission.
-- [Automation limitations public cross-post](https://www.linkedin.com/posts/joshdhoeg_are-n8n-and-zapier-dead-not-exactly-n8n-activity-7406446421559824384-l5sH)
-  distinguishes stable task automation from variable workflows, warns that
-  complexity increases failure, and argues that multiple specialized agents
-  should be considered only when a single agent cannot reliably cover the work.
-- [AI Blogging Agent public cross-post](https://www.linkedin.com/posts/joshdhoeg_building-an-ai-blogging-agent-is-easier-then-activity-7406160393364049920-o8UK)
+- [Josh Blogging Agent public cross-post](https://www.linkedin.com/posts/joshdhoeg_building-an-ai-blogging-agent-is-easier-then-activity-7406160393364049920-o8UK)
   includes public captions about a short prototype flow and integration setup.
+- [Missing-SEO reel](https://www.instagram.com/reel/DdaUJGpgqsP/). Its public
+  caption lists sitemap, robots, noindex, canonical tags, titles, descriptions,
+  one H1, heading hierarchy, alt text, schema, internal and broken links,
+  image compression, Core Web Vitals, mobile responsiveness, HTTPS, URL slugs,
+  llms.txt, and backlinks, while warning that SEO and GEO need context.
+- [Performance-at-scale reel](https://www.instagram.com/reel/DdP1ySxAsxT/).
+  Its caption warns that AI-generated code does not automatically optimize for
+  real user data or scale, and calls out speed and performance as explicit
+  prompt targets.
+- [Pipeline reel](https://www.instagram.com/reel/DdSQEtjAu96/). The caption
+  names a possible toolchain of Claude, Cursor, Vercel, Supabase, CodeRabbit,
+  Stripe, and Grokbot. Treat this as an example, not a required stack.
+- [Security-prompt reel](https://www.instagram.com/reel/DdeVhKVSMur/).
+  Indexed keywords name admin routes, password storage, server-side permissions,
+  email verification, SQL queries, token management, environment files, XSS,
+  uploads, webhook signatures, rate limiting, and dependency updates.
+- [Small-details reel](https://www.instagram.com/reel/DdJrv9bBc6X/).
+  The accessible public caption recovered for the profile's later reel lists
+  dark mode, sticky header, mobile menu, hover states, scroll progress,
+  back-to-top, loading states, search, skip-to-content, floating contact,
+  FAQ, newsletter, password toggle, cookie banner, confirmation modals, a real
+  404, print stylesheet, UTM tracking, copy-to-clipboard, and last-updated dates.
+
+### Alex Yates, @yatesvids
+
+- [Instagram profile](https://www.instagram.com/yatesvids/). The public bio says
+  "AI minus the slop" and links a free website slop detector.
+- [20 signs reel](https://www.instagram.com/reel/DbUiVFpBwKm/). The caption says
+  isolated choices such as a purple gradient or rounded buttons are not the
+  issue; the giveaway is the unexamined combination. It attributes generic
+  output to underspecified prompts and asks for stronger direction.
+- [Before-build reel](https://www.instagram.com/reel/Dcz5R-QNXvN/). The public
+  transcript says to avoid purple gradients, pill-shaped buttons, fake reviews
+  and metrics, vague hero text, emoji icons, em dashes, over-the-top scroll
+  motion, AI-slop photos and copy, cursor animations, and fake counters. It
+  says not to launch until a custom domain, favicon, privacy page, and Terms
+  and Conditions page exist.
+- [20-launch-items reel](https://www.instagram.com/reel/Db15Zn0hSmH/). Indexed
+  terms cover a custom 404, unique titles, above-fold CTA, internal links,
+  thank-you page, breadcrumbs, case studies, FAQs, response-time promise,
+  sticky mobile CTA, robots.txt, social images, maps and directions, real
+  reviews, alt text, local schema, privacy, analytics, and a real team photo.
+- [20-more-launch-items reel](https://www.instagram.com/reel/Db7AelVBoVj/).
+  Indexed terms cover sitemap, tooltips, canonical tags, favicon, tap-to-call,
+  form errors, opening hours, Search Console, blog/about pages, service pages,
+  visible contact email, working social links, compressed images, cookie
+  consent, llms, Terms of Service, payment methods, and truthful guarantees.
+- [20-fixes reel](https://www.instagram.com/reel/DcKiRe3TvdB/). Indexed terms
+  cover titles, descriptions, image compression, broken links, mobile and
+  horizontal overflow, buttons, success/error messages, favicon, copyright
+  year, 404 page, and mobile menu.
+- [20-additions reel](https://www.instagram.com/reel/DcCoWjpzkWC/). Indexed terms
+  cover dark mode, sticky headers, UTM tracking, confirmation modals, mobile
+  menus, loading behavior, hover states, scroll progress, copy-to-clipboard,
+  print styles, password visibility, form success/error, contact, FAQs, and
+  search.
+- [SEO and technical cleanup reel](https://www.instagram.com/reel/Dcp1PduBGnH/).
+  Indexed terms cover structured data, keyword research, meta and canonical
+  tags, internal links, breadcrumbs, social images, alt text, console errors,
+  robots, sitemaps, favicons, and local business schema.
+- [Security checks reel](https://www.instagram.com/reel/DcNc-EszHJF/).
+  Indexed terms cover API keys, environment variables, git keys, admin routes,
+  authentication, user permissions, XSS, SQL injection, rate limiting, CORS,
+  HTTPS, security headers, cookies, debug mode, production settings, database
+  rules, uploads, and CSRF.
+- [Security follow-up reel](https://www.instagram.com/reel/DdSXJx4vQEK/).
+  It frames the checks as protection required before a public launch.
+- [Vibe-coded giveaways reel](https://www.instagram.com/reel/Dbe00mehnm2/).
+  Indexed terms include hosted-builder URLs, purple gradients, AI-slop photos,
+  fake reviews, broken buttons, scroll animation, one-page sites, text-only
+  logos, missing favicons, empty legal pages, fake counts, emoji icons, vague
+  hero copy, cursive fonts, builder tags, and em dashes.
+- [Beginner pre-publish reel](https://www.instagram.com/reel/Dbpctz6Cp5a/).
+  Indexed terms cover canonical tags, meta descriptions, OG images, structured
+  data, heading tags, sitemap, language attribute, alt text, source maps,
+  console errors, and JavaScript bundles.
+- [Use AI deliberately reel](https://www.instagram.com/reel/DbzgTZrBlZM/).
+  Indexed keywords distinguish AI for prototyping, ideation, and binary
+  outcomes from human-led final creative judgment.
+- [Yates website](https://yatesvids.com/). It describes the project as videos
+  about vibecoding and avoiding AI slop, with a free site check.
 
 ## Adaptation rules
 
 - Start from the user's concrete problem, smallest useful workflow, and
   observable outcome rather than a feature inventory or generic AI promise.
-- Write and critique a durable brief before implementation. Keep the brief
-  structured, reviewable, and explicit about non-goals, boundaries, failure
-  states, tests, and release limits.
-- Ship a narrow prototype, show a real input-to-output path, invite feedback,
-  label known bugs and maturity honestly, and iterate from evidence.
-- Treat a product-requirements document, a provider sample request, or a coding
-  tool prompt as a contract aid. None proves security, reliability, or
-  production readiness.
+- Write and critique a durable brief before implementation. Specify the
+  audience, point of view, visual references, content hierarchy, interaction
+  states, spacing rhythm, typography, color roles, banned patterns, non-goals,
+  boundaries, tests, and release limits.
+- Treat anti-slop signals as correlated evidence, not universal bans. A single
+  gradient, rounded button, or familiar font can be correct; reject the
+  unexamined combination and document why retained choices fit the brand.
+- Build the core flow and the relevant small-detail states together. Add dark
+  mode, navigation, loading, search, forms, dialogs, print, UTM handling,
+  copy-to-clipboard, or last-updated dates only when the product needs them,
+  with accessible states and tests.
+- Show a real, truthful input-to-output path. Label prototype, beta, and
+  production maturity honestly; do not substitute polished screenshots or a
+  feature checklist for product evidence.
+- Treat SEO as a rendering and content system: verify crawlable server or
+  prerendered HTML, metadata, canonical URLs, headings, alt text, schema,
+  links, sitemaps, robots, llms, image performance, mobile behavior, URLs, and
+  Core Web Vitals. Do not assume a framework or builder default is sufficient.
+- Treat security lists as tests, not prose. Check delivered secrets, auth and
+  admin routes, ownership, server-side permissions, input sanitization, XSS,
+  SQL injection, rate limits, CORS, HTTPS, headers, cookies, debug mode,
+  dependency updates, database rules, uploads, webhooks, and CSRF.
 - Keep credentials in approved secret stores. A chat subscription and an API
   credential are different boundaries. Do not paste secrets into models,
   prompts, screenshots, issues, or logs.
@@ -54,9 +136,9 @@ content.
   or external AI providers merely to imitate a demo. Add them only when the
   verified product requires them, with explicit privacy, security, cost, and
   failure checks.
-- Do not use a humanizer or similar service to conceal generated origin or
-  promise undetectability. Review accuracy, attribution, copyright, and
-  disclosure requirements instead.
 - Prefer deterministic automation for stable tasks. If agents are justified,
   bound tools, retries, spend, latency, side effects, and handoff contracts,
   then keep a human or deterministic approval boundary for consequential work.
+- Do not use a humanizer or similar service to conceal generated origin or
+  promise undetectability. Review accuracy, attribution, copyright, and
+  disclosure requirements instead.
