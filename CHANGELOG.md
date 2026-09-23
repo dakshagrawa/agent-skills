@@ -8,6 +8,8 @@ All notable changes to the skill packages in this repository are recorded here.
   brief requirements, anti-slop specificity, launch-detail state coverage,
   crawlable-rendering checks, and explicit pre-launch security verification for
   SEO, performance, legal, and security guidance from public creator sources.
+- Preserve two requested Instagram source URLs as pending extraction; do not
+  infer checklist guidance from unavailable reel content.
 
 ## 0.1.0
 

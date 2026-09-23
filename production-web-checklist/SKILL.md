@@ -35,8 +35,10 @@ the result works for the intended user.
 
 The source notes used to derive the AI-assisted guidance are in
 `production-web-checklist/references/ai-assisted-delivery-evidence.md`. They
-record public URLs, retrieval date, observed facts, and the narrower rules
-adapted from them without treating social content as authority.
+They record public URLs, retrieval date, observed facts, and the narrower rules
+adapted from them without treating social content as authority. Requested source
+URLs whose content is unavailable remain listed as pending extraction and must
+not be used to infer new checklist requirements.
 
 ## When to Use
 

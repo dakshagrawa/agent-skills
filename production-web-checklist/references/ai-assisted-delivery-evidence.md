@@ -103,6 +103,16 @@ content.
 - [Yates website](https://yatesvids.com/). It describes the project as videos
   about vibecoding and avoiding AI slop, with a free site check.
 
+### Requested sources pending extraction
+
+The following requested Instagram reels are preserved as source links, but no
+content was extracted from them at update time. Do not infer checklist guidance
+from these URLs until their captions or transcripts can be independently
+verified:
+
+- https://www.instagram.com/reel/DdbYNbdIP2e/?stkn=NGN4eHF6cW9ldGRk
+- https://www.instagram.com/reel/DdMjkxiyaJ-/?stkn=aHJuYjBwNnNicWxn
+
 ## Adaptation rules
 
 - Start from the user's concrete problem, smallest useful workflow, and
