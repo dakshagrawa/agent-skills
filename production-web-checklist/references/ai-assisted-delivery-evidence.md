@@ -103,15 +103,28 @@ content.
 - [Yates website](https://yatesvids.com/). It describes the project as videos
   about vibecoding and avoiding AI slop, with a free site check.
 
-### Requested sources pending extraction
+### Requested source notes
 
-The following requested Instagram reels are preserved as source links, but no
-content was extracted from them at update time. Do not infer checklist guidance
-from these URLs until their captions or transcripts can be independently
-verified:
-
-- https://www.instagram.com/reel/DdbYNbdIP2e/?stkn=NGN4eHF6cW9ldGRk
-- https://www.instagram.com/reel/DdMjkxiyaJ-/?stkn=aHJuYjBwNnNicWxn
+- [Legal-exposure reel](https://www.instagram.com/reel/DdbYNbdIP2e/?stkn=NGN4eHF6cW9ldGRk)
+  by Adilet (@adilet.fndr), posted September 18, 2026. The caption warns that
+  a vibe-coded app can create legal exposure before it has sales, using examples
+  involving child signup age checks and COPPA, third-party Google Fonts,
+  session replay and California wiretapping, CAN-SPAM unsubscribe and physical
+  address requirements, recurring-subscription renewal terms and cancellation
+  instructions, and a DMCA designated agent. Its proposed audit also says to
+  self-host fonts, disable session replay by default, mask inputs, include
+  unsubscribe and address details in marketing email, show renewal and cancel
+  terms beside the subscribe action, and register a DMCA agent where applicable.
+  The caption's dollar and euro figures are creator examples, not verified legal
+  conclusions; use qualified legal review for applicability and current amounts.
+- [SEO visibility reel](https://www.instagram.com/reel/DdMjkxiyaJ-/?stkn=aHJuYjBwNnNicWxn)
+  by Josh Hoeg (@joshtheaiguy), posted September 12, 2026. The recovered caption
+  says Google may not show a vibe-coded website when its SEO requirements were
+  not specified. The page's indexed keywords identify sitemap, metadata,
+  internal links, mobile responsiveness, Core Web Vitals, URL slugs, and search
+  engine rankings as the concrete SEO topics. The full spoken transcript was
+  not recoverable, so no additional claims are inferred beyond those caption and
+  indexed-keyword signals.
 
 ## Adaptation rules
 
