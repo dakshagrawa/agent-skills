@@ -103,6 +103,37 @@ content.
 - [Yates website](https://yatesvids.com/). It describes the project as videos
   about vibecoding and avoiding AI slop, with a free site check.
 
+### Requested source notes
+
+- [Legal-exposure reel](https://www.instagram.com/reel/DdbYNbdIP2e/?stkn=NGN4eHF6cW9ldGRk)
+  by Adilet (@adilet.fndr), posted September 18, 2026. The caption warns that
+  a vibe-coded app can create legal exposure before it has sales, using examples
+  involving child signup age checks and COPPA, third-party Google Fonts,
+  session replay and California wiretapping, CAN-SPAM unsubscribe and physical
+  address requirements, recurring-subscription renewal terms and cancellation
+  instructions, and a DMCA designated agent. Its proposed audit also says to
+  self-host fonts, disable session replay by default, mask inputs, include
+  unsubscribe and address details in marketing email, show renewal and cancel
+  terms beside the subscribe action, and register a DMCA agent where applicable.
+  The caption's dollar and euro figures are creator examples, not verified legal
+  conclusions; use qualified legal review for applicability and current amounts.
+- [SEO visibility reel](https://www.instagram.com/reel/DdMjkxiyaJ-/?stkn=aHJuYjBwNnNicWxn)
+  by Josh Hoeg (@joshtheaiguy), posted September 12, 2026. The user-provided
+  transcript is:
+
+  > Hey Claude, Google isn't showing my vibe coded website. I need you to build
+  > a sitemap.xml, add robots.txt, remove noindex tags, add canonical tags, add
+  > meta titles, add meta descriptions, use one H1 per page, fix header
+  > hierarchy, add alt text to images, add schema markup, add internal links,
+  > fix the broken links, compress images, improve core web vitals, fix mobile
+  > responsiveness, enforce HTTPS, clean up URL slugs, add an OG image, verify
+  > search console, build a backlink strategy. Make no mistakes.
+
+  Adapt the transcript into verifiable checks, not a guarantee of Google
+  visibility or rankings. A backlink strategy must be ethical and quality-led,
+  and every SEO requirement remains subject to the site's actual route set and
+  deployment architecture.
+
 ## Adaptation rules
 
 - Start from the user's concrete problem, smallest useful workflow, and
