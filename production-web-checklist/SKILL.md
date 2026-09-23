@@ -37,9 +37,9 @@ The source notes used to derive the AI-assisted guidance are in
 `production-web-checklist/references/ai-assisted-delivery-evidence.md`. They
 record public URLs, retrieval date, observed facts, and the narrower rules
 adapted from them without treating social content as authority. The requested
-source notes also preserve caption-derived legal-risk and SEO checks; creator
-penalty figures remain unverified examples, and unavailable spoken content is
-not expanded beyond the recovered caption and indexed keywords.
+source notes preserve caption-derived legal-risk checks and a user-provided SEO
+transcript; creator penalty figures remain unverified examples, and SEO outcomes
+must be verified rather than promised.
 
 ## When to Use
 
@@ -334,7 +334,15 @@ Do not execute placeholder commands just because they appear in this example.
      canonical tags across all pages, and make `noindex` or canonical behavior
      intentional for non-public routes. Add accurate Open Graph (`og:*`)
      metadata, Twitter Card metadata, and dedicated 1200x630 social preview
-     images when social sharing is in scope.
+     images when social sharing is in scope. Remove accidental `noindex` tags;
+     never remove an intentional private-route exclusion just to chase rankings.
+   - Run a route-level SEO pass for one H1 per page, ordered heading hierarchy,
+     descriptive alt text, schema markup that matches visible content, internal
+     links, fix the broken links, compress images, responsive behavior, Core Web
+     Vitals, HTTPS, readable URL slugs, and a representative Open Graph image.
+     Verify the deployed site in Google Search Console when the owner has access.
+     Build only an ethical, quality-led backlink strategy; do not buy links,
+     spam directories, or promise ranking outcomes.
    - JSON-LD that matches visible, verified content. Use Local Business
      (`LocalBusiness`), Organization (`Organization`), and BreadcrumbList
      (`BreadcrumbList`) schemas when the site actually represents those
