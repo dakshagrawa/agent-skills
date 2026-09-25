@@ -16,6 +16,10 @@ All notable changes to the skill packages in this repository are recorded here.
   sitemaps, robots, noindex, canonicals, metadata, headings, alt text, schema,
   links, image compression, Core Web Vitals, mobile behavior, HTTPS, URL slugs,
   OG images, Search Console, and ethical backlinks.
+- Extend `production-web-checklist` with contextual design-brief guidance and
+  architecture-aware login/authentication review informed by two additional
+  Instagram sources; record that the first post and the second post's five
+  audit items were not extractable, and do not claim those unknown items.
 
 ## 0.1.0
 

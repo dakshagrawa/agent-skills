@@ -105,6 +105,29 @@ content.
 
 ### Requested source notes
 
+- [Design-guidance post](https://www.instagram.com/p/Ddhl5TzynaO/). Its post
+  content was not extractable, so no specific claim is attributed to the
+  Instagram post. A contemporaneous, publicly indexed article titled [How can
+  YOUR Vibe Coded Website not look like AI Slop?](https://abhijayvuyyuru.substack.com/p/how-can-your-vibe-coded-website-not)
+  contains a detailed design brief and six-resource workflow. The article's
+  relation to this Instagram post could not be verified. Its reusable guidance
+  is to foreground the actual product, create hierarchy with readable type and
+  spacing, vary section composition, avoid default decorative patterns and
+  fabricated proof, use references for principles rather than copying assets,
+  specify audience/content/action/assets/stack, prototype one representative
+  section, and inspect desktop and mobile before extending the design. These
+  are contextual prompts, not universal style bans.
+- [Login-audit post](https://www.instagram.com/p/DdKWKlaSosL/). The indexed
+  caption says: “Comment AUDIT and I’ll send you the prompt that checks all five
+  in your codebase. Claude will build you a login in seconds.” The five audit
+  items and the promised prompt were not available, so they are not inferred or
+  represented as recovered content. The checklist adds a general, architecture-
+  aware auth review: test authentication, server-side authorization,
+  session/token handling, password/provider configuration, and abuse controls;
+  for Supabase, verify per-table/per-operation RLS policies and keep the
+  service-role/secret key out of browser code. These checks are operational
+  guidance, not a claim about the creator's unknown five-item list.
+
 - [Legal-exposure reel](https://www.instagram.com/reel/DdbYNbdIP2e/?stkn=NGN4eHF6cW9ldGRk)
   by Adilet (@adilet.fndr), posted September 18, 2026. The caption warns that
   a vibe-coded app can create legal exposure before it has sales, using examples

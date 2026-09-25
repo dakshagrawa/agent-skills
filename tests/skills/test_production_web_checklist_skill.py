@@ -237,6 +237,11 @@ def test_skill_preserves_explicit_original_requirements():
         "ethical, quality-led backlink strategy",
         "AI feature theater",
         "Small-detail theater",
+        "foreground the actual product",
+        "inspect it at desktop and mobile widths",
+        "quickly generated login screen",
+        "server-side authorization",
+        "each table and operation to the intended user",
     ]
     missing = [phrase for phrase in required_phrases if phrase.lower() not in content.lower()]
     assert not missing, f"requirements missing from skill: {missing}"
@@ -252,12 +257,12 @@ def test_skill_preserves_explicit_original_requirements():
     requirements_by_step = {
         1: ["durable product brief", "critique missing assumptions", "smallest useful workflow"],
         2: ["Business name", "Target audience", "Brand personality", "Available proof", "Design constraints", "smallest useful workflow"],
-        3: ["Do not use the following patterns", "Never use em dash punctuation", "generic abstract 3D shapes", "cursor animations", "fake urgency", "stock imagery that implies an untrue", "Do not treat a visual trend as a requirement", "visual references", "spacing rhythm"],
+        3: ["Do not use the following patterns", "Never use em dash punctuation", "generic abstract 3D shapes", "cursor animations", "fake urgency", "stock imagery that implies an untrue", "Do not treat a visual trend as a requirement", "visual references", "spacing rhythm", "foreground the actual product", "inspect it at desktop and mobile widths"],
         4: ["success, loading, empty", "exactly one clear, compelling primary CTA above", "sticky CTA bar", "content or task does not justify", "document the specific rationale", "input/output contract", "handoff contracts", "idempotency", "real 404", "copy-to-clipboard", "UTM handling"],
         5: ["Hero headline", "Case Study", "FAQ", "Team with real team photos", "Thank You page", "smallest useful flow", "input-to-output walkthrough"],
         6: ["Exactly one clear `<h1>` tag per page", "unique page title", "unique meta description", "canonical tags across all pages", "remove accidental `noindex` tags", "one H1 per page", "fix the broken links", "compress images", "Core Web Vitals", "Google Search Console", "ethical, quality-led backlink strategy", "LocalBusiness", "BreadcrumbList", "Generate valid `sitemap.xml`", "crawlable rendering", "cold response"],
         7: ["build standalone Privacy Policy", "form-consent opt-in checkboxes", "cookie-consent banner", "Properly set up and verify analytics tracking", "copyright licenses", "provider, model, API key boundary", "prompt or user-content transfer"],
-        8: ["Force HTTPS", "client and server", "bcrypt or Argon2", "strict RBAC", "Content Security Policy", "HSTS", "X-Frame-Options", "X-Content-Type-Options", "generated HTML", "kill switch"],
+        8: ["Force HTTPS", "client and server", "bcrypt or Argon2", "strict RBAC", "Content Security Policy", "HSTS", "X-Frame-Options", "X-Content-Type-Options", "generated HTML", "kill switch", "quickly generated login screen", "each table and operation to the intended user"],
         9: ["WCAG 2.1 AA", "Keyboard operation", "Every image has an intentional alt value", "44 by 44 CSS-pixel"],
         10: ["custom-domain", "custom, helpful 404", "WebP or AVIF", "production source maps", "browser console errors", "full custom favicon set", "mobile, tablet, and desktop", "human-correction rate"],
         12: ["Strategy Snapshot", "Three Creative Directions", "Chosen Direction", "Complete Website Build and Verification", "A. Direction Name", "F. Risks and Tradeoffs"],
