@@ -37,9 +37,10 @@ The source notes used to derive the AI-assisted guidance are in
 `production-web-checklist/references/ai-assisted-delivery-evidence.md`. They
 record public URLs, retrieval date, observed facts, and the narrower rules
 adapted from them without treating social content as authority. The requested
-source notes preserve caption-derived legal-risk checks and a user-provided SEO
-transcript; creator penalty figures remain unverified examples, and SEO outcomes
-must be verified rather than promised.
+source notes preserve caption-derived legal-risk checks, user-provided SEO and
+design transcripts, and the indexed but incomplete login-audit caption; creator
+penalty figures remain unverified examples, and SEO outcomes must be verified
+rather than promised.
 
 ## When to Use
 
@@ -193,7 +194,25 @@ Do not execute placeholder commands just because they appear in this example.
      cursor animations, over-the-top scroll animations, or repetitive card
      stacks.
    - Raw emojis as UI icons. Use a consistent SVG icon library such as Lucide,
-     Heroicons, or Font Awesome when icons are needed.
+     Heroicons, or Font Awesome when icons are needed. Do not default to Lucide
+     just because it is bundled; when a design brief rejects familiar icon
+     defaults, honor that constraint and choose a purposeful alternative.
+   - Harsh or rainbow gradients, a pure-white page background, default purple-
+     and-black themes, neon colors, or basic pastel palettes. Prefer color roles
+     and restrained accents justified by the brand rather than applying a
+     blanket aesthetic preset. Do not default to Inter, Geist, or Space Grotesk;
+     select type for readability and the specific identity.
+   - Drop shadows on every component, decorative colored stripes, liquid-glass
+     effects, radial orbs, dot grids, sparkle icons, and animated arrows. Use
+     depth and motion only to communicate hierarchy or interaction. Do not add
+     hover animations everywhere; respect reduced-motion settings.
+   - Checkmark bullets, the generic copy formula “It's not X, it's Y,” default
+     three-card feature rows, or three pricing tiers. Use actual product-led
+     content and supplied pricing; do not fabricate a three-tier offer.
+   - Missing real product demos, Terms of Service, or Privacy Policy pages
+     where the product and its jurisdiction make them applicable. Show a
+     truthful working demo or clearly label simulation; provide legal pages
+     based on actual practices and flag missing facts for qualified review.
    - Fake customer counters, fake metrics, fake reviews, fake urgency, or stock
      imagery that implies an untrue person, team, customer, or result,
      including glossy AI stock photos.
@@ -274,10 +293,12 @@ Do not execute placeholder commands just because they appear in this example.
    For every form, API call, payment, signup, or async action, define the
    success confirmation, field-level validation, retry or recovery path, and
    user-safe error copy. For each loading state, decide whether a spinner,
-   progress indicator, skeleton, or immediate content is truthful; never leave
-   a control apparently frozen or show a skeleton that does not match the final
-   layout. Exercise broken links, horizontal overflow, mobile navigation, and
-   direct 404 behavior rather than relying on visual inspection.
+   progress indicator, skeleton, or immediate content is truthful. Use a
+   skeleton when it helps communicate genuine asynchronous work; do not omit
+   useful feedback or add artificial delays, and never show a skeleton that
+   mismatches the final layout. Never leave a control apparently frozen.
+   Exercise broken links, horizontal overflow, mobile navigation, and direct
+   404 behavior rather than relying on visual inspection.
 
    For an AI-assisted app, define the user-visible contract before coding:
    input and output shape, model or integration boundaries, loading and timeout

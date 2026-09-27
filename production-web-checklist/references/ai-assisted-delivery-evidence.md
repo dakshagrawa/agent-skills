@@ -105,18 +105,43 @@ content.
 
 ### Requested source notes
 
-- [Design-guidance post](https://www.instagram.com/p/Ddhl5TzynaO/). Its post
-  content was not extractable, so no specific claim is attributed to the
-  Instagram post. A contemporaneous, publicly indexed article titled [How can
-  YOUR Vibe Coded Website not look like AI Slop?](https://abhijayvuyyuru.substack.com/p/how-can-your-vibe-coded-website-not)
-  contains a detailed design brief and six-resource workflow. The article's
-  relation to this Instagram post could not be verified. Its reusable guidance
-  is to foreground the actual product, create hierarchy with readable type and
+- [Design-guidance post](https://www.instagram.com/p/Ddhl5TzynaO/). The user
+  supplied this transcript:
+
+  > Harsh gradients, lucite icons, pure white background, rainbow coloring, drop
+  > shadow on everything, three feature cards in a row, emojis, liquid glass, em
+  > dashes using Inter, Geist or Space Grotesk fonts. This colored stripe. Fake
+  > testimonials, bento grids, terminal window. It's not X, it's Y. Checkmark
+  > bullets. Three pricing tiers. No real product demos. Soft corner radius.
+  > Purple and black. No skeleton loaders. Radial orbs. Dot grids. Sparkle icons.
+  > Animated arrows. No TOS. No privacy policy. Hover animations for everything.
+  > Neon colors and basic pastel colors. Now, whenever you want to vibe code a
+  > website, just ask the LLM not to use any of these.
+
+  The list mixes visual patterns to avoid with omissions to prevent. Apply the
+  former contextually: avoid the transcript's literal "lucite icons" (likely
+  referring to Lucide icon defaults), pure-white backgrounds, loud/default
+  gradients, all-over shadows, three-card rows, generic bento or terminal
+  filler, checkmark bullets, the "It's not X, it's Y" copy formula, default
+  three-tier pricing, soft corners everywhere, decorative stripes, liquid glass,
+  radial/dot/sparkle effects, animated arrows, and hover motion on everything.
+  Avoid Inter, Geist, and Space Grotesk as unexamined defaults, not as universal
+  bans when a brand specifically calls for them. For items phrased as absences,
+  provide a truthful product demo, context-appropriate Terms and Privacy pages,
+  and useful loading feedback. Use skeletons when genuine asynchronous content
+  benefits from them, without artificial delays or mismatched placeholders.
+  Preserve the exact transcript as source evidence; the interpretation above
+  distinguishes explicit absence warnings from the aesthetic anti-patterns.
+  An additional publicly indexed article titled [How can YOUR Vibe Coded Website
+  not look like AI Slop?](https://abhijayvuyyuru.substack.com/p/how-can-your-vibe-coded-website-not)
+  contains a detailed design brief and six-resource workflow. Its relation to
+  this Instagram post could not be verified. Its reusable guidance is to
+  foreground the actual product, create hierarchy with readable type and
   spacing, vary section composition, avoid default decorative patterns and
   fabricated proof, use references for principles rather than copying assets,
   specify audience/content/action/assets/stack, prototype one representative
-  section, and inspect desktop and mobile before extending the design. These
-  are contextual prompts, not universal style bans.
+  section, and inspect desktop and mobile before extending the design. Treat
+  these as contextual prompts, not universal style bans.
 - [Login-audit post](https://www.instagram.com/p/DdKWKlaSosL/). The indexed
   caption says: “Comment AUDIT and I’ll send you the prompt that checks all five
   in your codebase. Claude will build you a login in seconds.” The five audit

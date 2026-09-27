@@ -18,8 +18,13 @@ All notable changes to the skill packages in this repository are recorded here.
   OG images, Search Console, and ethical backlinks.
 - Extend `production-web-checklist` with contextual design-brief guidance and
   architecture-aware login/authentication review informed by two additional
-  Instagram sources; record that the first post and the second post's five
-  audit items were not extractable, and do not claim those unknown items.
+  Instagram sources. The design post page itself was not extractable, but its
+  transcript was supplied by the user; the login post's five audit items remain
+  unavailable and are not invented.
+- Incorporate the user-provided transcript for the design post into the source
+  evidence and anti-pattern checklist, interpreting “no demo,” “no loaders,” and
+  “no policies” as missing essentials to address contextually, not as features
+  to remove.
 
 ## 0.1.0
 

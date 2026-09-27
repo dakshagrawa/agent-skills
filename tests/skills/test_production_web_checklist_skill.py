@@ -80,6 +80,19 @@ def test_repository_docs_and_test_entrypoint_exist():
     assert (ROOT / ".github" / "workflows" / "ci.yml").is_file()
 
 
+def test_user_supplied_design_transcript_is_preserved_as_evidence():
+    evidence = (ROOT / "production-web-checklist" / "references" / "ai-assisted-delivery-evidence.md").read_text(encoding="utf-8")
+    assert "https://www.instagram.com/p/Ddhl5TzynaO/" in evidence
+    for phrase in [
+        "Harsh gradients, lucite icons",
+        "It's not X, it's Y.",
+        "No real product demos.",
+        "No skeleton loaders.",
+        "No TOS. No privacy policy.",
+    ]:
+        assert phrase in evidence
+
+
 def test_ci_uses_immutable_actions_and_checks_the_change_range():
     workflow = (ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")
     assert re.search(r"uses: actions/checkout@[0-9a-f]{40}", workflow)
@@ -242,6 +255,19 @@ def test_skill_preserves_explicit_original_requirements():
         "quickly generated login screen",
         "server-side authorization",
         "each table and operation to the intended user",
+        "Harsh or rainbow gradients",
+        "pure-white page background",
+        "default purple- and-black themes",
+        "Inter, Geist, or Space Grotesk",
+        "Drop shadows on every component",
+        "liquid-glass effects",
+        "Checkmark bullets",
+        "Do not default to Lucide just because it is bundled",
+        "It's not X, it's Y",
+        "three pricing tiers",
+        "truthful working demo",
+        "Hover animations everywhere",
+        "Use a skeleton when it helps communicate genuine asynchronous work",
     ]
     missing = [phrase for phrase in required_phrases if phrase.lower() not in content.lower()]
     assert not missing, f"requirements missing from skill: {missing}"
@@ -257,8 +283,8 @@ def test_skill_preserves_explicit_original_requirements():
     requirements_by_step = {
         1: ["durable product brief", "critique missing assumptions", "smallest useful workflow"],
         2: ["Business name", "Target audience", "Brand personality", "Available proof", "Design constraints", "smallest useful workflow"],
-        3: ["Do not use the following patterns", "Never use em dash punctuation", "generic abstract 3D shapes", "cursor animations", "fake urgency", "stock imagery that implies an untrue", "Do not treat a visual trend as a requirement", "visual references", "spacing rhythm", "foreground the actual product", "inspect it at desktop and mobile widths"],
-        4: ["success, loading, empty", "exactly one clear, compelling primary CTA above", "sticky CTA bar", "content or task does not justify", "document the specific rationale", "input/output contract", "handoff contracts", "idempotency", "real 404", "copy-to-clipboard", "UTM handling"],
+        3: ["Do not use the following patterns", "Never use em dash punctuation", "generic abstract 3D shapes", "cursor animations", "fake urgency", "stock imagery that implies an untrue", "Do not treat a visual trend as a requirement", "visual references", "spacing rhythm", "foreground the actual product", "inspect it at desktop and mobile widths", "Checkmark bullets", "Do not default to Lucide just because it is bundled", "It's not X, it's Y", "three pricing tiers", "Hover animations everywhere", "truthful working demo"],
+        4: ["success, loading, empty", "exactly one clear, compelling primary CTA above", "sticky CTA bar", "content or task does not justify", "document the specific rationale", "input/output contract", "handoff contracts", "idempotency", "real 404", "copy-to-clipboard", "UTM handling", "Use a skeleton when it helps communicate genuine asynchronous work"],
         5: ["Hero headline", "Case Study", "FAQ", "Team with real team photos", "Thank You page", "smallest useful flow", "input-to-output walkthrough"],
         6: ["Exactly one clear `<h1>` tag per page", "unique page title", "unique meta description", "canonical tags across all pages", "remove accidental `noindex` tags", "one H1 per page", "fix the broken links", "compress images", "Core Web Vitals", "Google Search Console", "ethical, quality-led backlink strategy", "LocalBusiness", "BreadcrumbList", "Generate valid `sitemap.xml`", "crawlable rendering", "cold response"],
         7: ["build standalone Privacy Policy", "form-consent opt-in checkboxes", "cookie-consent banner", "Properly set up and verify analytics tracking", "copyright licenses", "provider, model, API key boundary", "prompt or user-content transfer"],
