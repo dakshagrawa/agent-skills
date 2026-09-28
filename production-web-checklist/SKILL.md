@@ -37,9 +37,10 @@ The source notes used to derive the AI-assisted guidance are in
 `production-web-checklist/references/ai-assisted-delivery-evidence.md`. They
 record public URLs, retrieval date, observed facts, and the narrower rules
 adapted from them without treating social content as authority. The requested
-source notes preserve caption-derived legal-risk checks and a user-provided SEO
-transcript; creator penalty figures remain unverified examples, and SEO outcomes
-must be verified rather than promised.
+source notes preserve caption-derived legal-risk checks, user-provided SEO and
+design transcripts, and the indexed but incomplete login-audit caption; creator
+penalty figures remain unverified examples, and SEO outcomes must be verified
+rather than promised.
 
 ## When to Use
 
@@ -193,7 +194,25 @@ Do not execute placeholder commands just because they appear in this example.
      cursor animations, over-the-top scroll animations, or repetitive card
      stacks.
    - Raw emojis as UI icons. Use a consistent SVG icon library such as Lucide,
-     Heroicons, or Font Awesome when icons are needed.
+     Heroicons, or Font Awesome when icons are needed. Do not default to Lucide
+     just because it is bundled; when a design brief rejects familiar icon
+     defaults, honor that constraint and choose a purposeful alternative.
+   - Harsh or rainbow gradients, a pure-white page background, default purple-
+     and-black themes, neon colors, or basic pastel palettes. Prefer color roles
+     and restrained accents justified by the brand rather than applying a
+     blanket aesthetic preset. Do not default to Inter, Geist, or Space Grotesk;
+     select type for readability and the specific identity.
+   - Drop shadows on every component, decorative colored stripes, liquid-glass
+     effects, radial orbs, dot grids, sparkle icons, and animated arrows. Use
+     depth and motion only to communicate hierarchy or interaction. Do not add
+     hover animations everywhere; respect reduced-motion settings.
+   - Checkmark bullets, the generic copy formula “It's not X, it's Y,” default
+     three-card feature rows, or three pricing tiers. Use actual product-led
+     content and supplied pricing; do not fabricate a three-tier offer.
+   - Missing real product demos, Terms of Service, or Privacy Policy pages
+     where the product and its jurisdiction make them applicable. Show a
+     truthful working demo or clearly label simulation; provide legal pages
+     based on actual practices and flag missing facts for qualified review.
    - Fake customer counters, fake metrics, fake reviews, fake urgency, or stock
      imagery that implies an untrue person, team, customer, or result,
      including glossy AI stock photos.
@@ -212,6 +231,20 @@ Do not execute placeholder commands just because they appear in this example.
    rounded corners, unearned scroll motion, and identical spacing everywhere.
    A single pattern can be appropriate. Reject the unexamined combination and
    require a brand-specific reason for each one that remains.
+
+   For a polished marketing or product surface, foreground the actual product
+   and its value. Prefer a deliberate neutral foundation, readable
+   contrast, and a restrained accent; build hierarchy with typography, spacing,
+   alignment, and varied section composition. Avoid defaulting to generic
+   gradients, decorative effects, repeated cards, or fashionable type and icon
+   choices. Use a real screenshot or live reference to discuss hierarchy and
+   scale, not to copy another brand's assets or exact layout. Keep content
+   truthful: do not invent testimonials, customer logos, metrics, or pricing;
+   label simulated results. Specify the actual audience, product, main action,
+   required pages, available assets, existing stack, and what is liked about a
+   reference before prompting a coding model. Build one representative section,
+   inspect it at desktop and mobile widths, then extend the system. Treat these
+   as prompts for design judgment, not universal aesthetic requirements.
 
    When the product is generated or heavily assisted by AI, never use the
    process as a substitute for product judgment. Do not publish unsupported
@@ -260,10 +293,12 @@ Do not execute placeholder commands just because they appear in this example.
    For every form, API call, payment, signup, or async action, define the
    success confirmation, field-level validation, retry or recovery path, and
    user-safe error copy. For each loading state, decide whether a spinner,
-   progress indicator, skeleton, or immediate content is truthful; never leave
-   a control apparently frozen or show a skeleton that does not match the final
-   layout. Exercise broken links, horizontal overflow, mobile navigation, and
-   direct 404 behavior rather than relying on visual inspection.
+   progress indicator, skeleton, or immediate content is truthful. Use a
+   skeleton when it helps communicate genuine asynchronous work; do not omit
+   useful feedback or add artificial delays, and never show a skeleton that
+   mismatches the final layout. Never leave a control apparently frozen.
+   Exercise broken links, horizontal overflow, mobile navigation, and direct
+   404 behavior rather than relying on visual inspection.
 
    For an AI-assisted app, define the user-visible contract before coding:
    input and output shape, model or integration boundaries, loading and timeout
@@ -450,6 +485,15 @@ Do not execute placeholder commands just because they appear in this example.
      cryptography or store plaintext passwords. Protect admin routes and
      sensitive endpoints with server-side authentication and strict RBAC so a
      user can access only authorized resources.
+   - Do not treat a quickly generated login screen as a secure authentication
+     system. For each sign-in and account flow, inspect the implementation and
+     test authentication, server-side authorization, session/token handling,
+     password storage or provider configuration, and abuse controls against the
+     actual architecture. For Supabase-backed apps, verify RLS is enabled and
+     policies restrict each table and operation to the intended user; confirm
+     the service-role/secret key is server-only and never shipped to the client.
+     These are baseline review areas, not a substitute for the source's
+     unprovided five-item audit prompt or a security review.
    - Set HTTP security headers appropriate to the deployment, including a
      tested Content Security Policy, HSTS, X-Frame-Options or an equivalent
      frame-ancestors policy, and X-Content-Type-Options. Turn off debug mode in
