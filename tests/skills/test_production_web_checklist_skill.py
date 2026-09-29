@@ -27,7 +27,7 @@ def test_frontmatter_has_repository_contract():
     description = frontmatter["description"]
     assert description.endswith(".")
     assert len(description) <= 60
-    assert frontmatter["version"] == "0.3.0"
+    assert frontmatter["version"] == "0.4.0"
     assert frontmatter["author"].startswith("Daksh Agrawal")
     assert frontmatter["license"] == "MIT"
     assert frontmatter["platforms"] == ["linux", "macos", "windows"]
@@ -62,6 +62,29 @@ def test_body_contains_actionable_sections_in_order():
     steps = re.findall(r"^\d+\. \*\*[^\n]+", procedure, flags=re.MULTILINE)
     assert len(steps) == 12
     assert procedure.count("**Complete when:**") == len(steps)
+
+
+def test_skill_documents_hermes_agent_tool_and_safety_workflow():
+    body = " ".join(read_skill()[2].split())
+    for phrase in [
+        "Hermes Agent operating rules",
+        "tools actually exposed in the session",
+        "skills_list",
+        "skill_view",
+        "clarify",
+        "browser_navigate",
+        "browser_exec",
+        "execute_code",
+        "delegate_task",
+        "A child has a fresh conversation",
+        "generic browser fields",
+        "browser_vault_list",
+        "browser_vault_fill",
+        "browser_vault_enter_code",
+        "Passing tests is not release authorization",
+        "read back the exact target",
+    ]:
+        assert phrase in body
 
 
 def test_skill_does_not_include_machine_paths_or_em_dash():
@@ -291,7 +314,7 @@ def test_skill_preserves_explicit_original_requirements():
         8: ["Force HTTPS", "client and server", "bcrypt or Argon2", "strict RBAC", "Content Security Policy", "HSTS", "X-Frame-Options", "X-Content-Type-Options", "generated HTML", "kill switch", "quickly generated login screen", "each table and operation to the intended user"],
         9: ["WCAG 2.1 AA", "Keyboard operation", "Every image has an intentional alt value", "44 by 44 CSS-pixel"],
         10: ["custom-domain", "custom, helpful 404", "WebP or AVIF", "production source maps", "browser console errors", "full custom favicon set", "mobile, tablet, and desktop", "human-correction rate"],
-        12: ["Strategy Snapshot", "Three Creative Directions", "Chosen Direction", "Complete Website Build and Verification", "A. Direction Name", "F. Risks and Tradeoffs"],
+        12: ["Strategy Snapshot", "Three Creative Directions", "Chosen Direction", "Complete Website Build and Verification", "A. Direction Name", "F. Risks and Tradeoffs", "If independent work was delegated", "checking the corresponding files"],
     }
     for step_number, phrases in requirements_by_step.items():
         step_text = " ".join(steps[step_number].split()).lower()

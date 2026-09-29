@@ -1,7 +1,7 @@
 ---
 name: production-web-checklist
 description: "Audit web design, SEO, accessibility, and security."
-version: 0.3.0
+version: 0.4.0
 author: Daksh Agrawal (@dakshagrawa)
 license: MIT
 platforms: [linux, macos, windows]
@@ -125,6 +125,46 @@ Do not execute placeholder commands just because they appear in this example.
 - **Exercise UI:** `browser_exec` with fresh direct navigations
 - **Inspect images:** `vision_analyze` when visual evidence is necessary
 - **Preserve secrets:** approved environment or secret stores, never chat or source
+
+### Hermes Agent operating rules
+
+Hermes tool availability depends on the active surface, enabled toolsets,
+credentials, and plugins. Use the tools actually exposed in the session; do not
+invent a tool name or claim an unavailable check passed. See the [Hermes tools
+reference](https://hermes-agent.nousresearch.com/docs/reference/tools-reference)
+for the current built-in registry (accessed 2026-09-28).
+
+- **Load relevant guidance:** use `skills_list` to discover installed skills and
+  `skill_view` to read a relevant one before following its specialized workflow.
+- **Resolve decisions:** make obvious, low-risk choices autonomously. Use
+  `clarify` when an unresolved choice materially changes scope, cost, privacy,
+  legal exposure, security, or the requested design.
+- **Inspect and edit:** use `read_file` and `search_files` for repository
+  discovery, `patch` for targeted edits, `write_file` for new or fully rewritten
+  files, and `terminal` for project commands and test gates.
+- **Research and exercise the site:** prefer `web_search` and `web_extract` for
+  source retrieval. For live behavior use the browser tools available on the
+  current surface, such as native `browser_navigate`, `browser_snapshot`,
+  `browser_console`, and `browser_vision`, or `browser_exec` in a Browser Use
+  session. Use fresh direct navigations and inspect the rendered result.
+- **Process tool results:** use `execute_code` for multi-tool work that needs
+  branching, filtering, or aggregation; use direct tool calls for single actions
+  and user-interaction steps.
+- **Delegate selectively:** use `delegate_task` for independent, reasoning-heavy
+  audits or implementation slices when parallel work materially helps. Give each
+  child the project context, scope, constraints, and acceptance criteria. A child
+  has a fresh conversation; the parent must review its diff and verify its claims
+  and tests before accepting the result. Do not delegate user decisions.
+- **Protect authenticated sessions:** never request or accept passwords,
+  payment details, or one-time codes in chat, and never type secrets into generic
+  browser fields. When exposed, use `browser_vault_list` first, then the matching
+  secure helper such as `browser_vault_fill`, `browser_vault_enter_code`, or
+  `browser_vault_save_login`. Otherwise stop at the authentication boundary and
+  ask the user to complete it securely.
+- **Gate external effects:** do not publish, merge, deploy, submit, message, or
+  mutate a live external system unless the user explicitly authorized that
+  action. Passing tests is not release authorization. After an authorized write,
+  read back the exact target and verify the resulting state.
 
 ## Procedure
 
@@ -643,6 +683,10 @@ Do not execute placeholder commands just because they appear in this example.
     blocking findings ordered by user impact and security risk. Then list fixes,
     evidence, remaining work, and why the existing design direction stayed in
     scope.
+
+    If independent work was delegated, name each verified deliverable and its
+    evidence. Do not present a delegated summary as proof without checking the
+    corresponding files, test output, or external state yourself.
 
     **Complete when:** the report names every changed file, exact verification
     command and outcome, assumption, deferred legal or security review, and
