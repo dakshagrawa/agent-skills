@@ -108,6 +108,7 @@ def main():
                 call(action="register_cache", media_id=media, claim_token=claim["claim_token"], path=f"cache/{media}/fixture.bin")
                 text_only = platform in {"threads", "x", "reddit", "bluesky"}
                 evidence = {"kind": "text" if text_only else "video", "audio": 0, "visual": 0 if text_only else 2, "pictures": 0, "times": [] if text_only else ["00:01", "00:02"], "visual_mode": "none" if text_only else "sampled", "observations": "SYNTHETIC SDK observations; no actual source content retrieved.", "limitations": "Synthetic fixture only; no real extraction.", "text_segments": 1 if text_only else 0, "has_media": not text_only}
+                if text_only: evidence["text_content"] = ["SYNTHETIC captured post text; no actual creator content was retrieved."]
                 call(action="save", media_id=media, claim_token=claim["claim_token"], summary="SYNTHETIC retained knowledge, not actual creator claims.", evidence=evidence, coverage="complete" if text_only else "partial")
                 item = call(action="get", media_id=media)
                 assert hashlib.sha256(Path(item["evidence_path"]).read_bytes()).hexdigest() == item["evidence_hash"]

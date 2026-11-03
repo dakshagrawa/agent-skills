@@ -193,8 +193,14 @@ def save_evidence(db, media_id, token, summary, evidence, coverage):
         return {"error": "unsupported evidence kind"}
     if coverage == "complete":
         if kind == "text":
-            if evidence.get("has_media") is not False or type(evidence.get("text_segments")) is not int or not 1 <= evidence["text_segments"] <= 500 or any(evidence[k] for k in ("audio", "visual", "pictures")):
-                return {"error": "complete text requires observed text and explicit absence of uninspected media"}
+            segments = evidence.get("text_content")
+            if (not isinstance(segments, list) or not 1 <= len(segments) <= 100
+                    or not all(isinstance(part, str) and part.strip() and len(part) <= MAX_TEXT for part in segments)
+                    or type(evidence.get("text_segments")) is not int
+                    or evidence["text_segments"] != len(segments)
+                    or evidence.get("has_media") is not False
+                    or any(evidence[k] for k in ("audio", "visual", "pictures"))):
+                return {"error": "complete text requires bounded captured text_content segments, a matching text_segments count, and explicit absence of uninspected media"}
         elif evidence.get("visual_mode") != "full" or not (evidence["visual"] or evidence["pictures"]) or (not evidence["audio"] and not evidence.get("audio_unavailable_reason")):
             return {"error": "complete requires full visual coverage and audio or an explicit no-audio basis"}
     try:
@@ -499,7 +505,7 @@ def register(ctx):
             "action": {"type": "string", "enum": ["status", "get", "claim", "save", "review", "review_status", "cleanup_plan", "cleanup_apply", "release", "register_cache", "pin"]},
             "media_id": {"type": "string", "maxLength": 64}, "claim_token": {"type": "string", "maxLength": 128},
             "summary": {"type": "string", "maxLength": 4000}, "coverage": {"type": "string", "enum": ["complete", "partial", "blocked"]},
-            "evidence": {"type": "object", "description": "Actual observations: kind video/image/carousel/text/mixed; audio/visual/pictures counts, times and observations. Text-only completeness requires text_segments and has_media=false. Record visual_mode, limitations and audio_unavailable_reason where applicable."},
+            "evidence": {"type": "object", "description": "Actual observations: kind video/image/carousel/text/mixed; audio/visual/pictures counts, times and observations. Text-only completeness requires nonempty text_content segments, matching text_segments and has_media=false. Record visual_mode, limitations and audio_unavailable_reason where applicable."},
             "plan_id": {"type": "string", "maxLength": 64}, "path": {"type": "string", "maxLength": 300}, "pinned": {"type": "boolean"}
         }, "required": ["action"]}}
     ctx.register_tool(name="media_scout", toolset="media_scout", schema=schema, handler=lambda args, **kw: _handler(ctx, args, **kw))

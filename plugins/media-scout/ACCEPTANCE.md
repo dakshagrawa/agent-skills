@@ -9,7 +9,7 @@ This file defines the release gates. The GitHub release notes report the actual 
 - Admission captures only the configured actual owner/scope. Unknown senders, missing source fields, malformed/multiple sources and pasted identity claims do not manufacture receipts.
 - Missing records are created; replay preserves original provenance, summary and state instead of resetting them.
 - Two cooperating callers cannot acquire the same extraction claim. A reload retains claim/evidence/task state. An elapsed timer does not imply that a writer stopped.
-- Save validates the current claim, bounded evidence and honest structured coverage. Summary-only input cannot become a complete audiovisual packet. Text-only completeness requires actual text segments and explicit absence of uninspected media.
+- Save validates the current claim, bounded evidence and honest structured coverage. Summary-only input cannot become a complete audiovisual packet. Text-only completeness requires bounded nonempty captured text segments with a matching count and explicit absence of uninspected media.
 - Each declared platform follows the same capture/evidence/review path. Provisional shares do not imply cross-link deduplication. An existing 0.1.0 catalog retains original Instagram IDs, claims and receipts.
 - Optional naming requires the configuration flag plus native capability consent, exact owner/source/receipt binding and a safe bounded title. Failure is nonfatal; another item cannot retarget an existing thread.
 - Review is disabled without operator consent. Local-only/stop/defer/no-review overrides win. Source text never changes the owner, profile, task authority or approval state.

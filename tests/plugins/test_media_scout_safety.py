@@ -122,7 +122,7 @@ def test_complete_text_post_requires_real_text_basis_and_no_missing_media(monkey
     mod = load_module(monkeypatch, tmp_path)
     db, _, media = fixture_record(mod, tmp_path)
     token = mod.claim(db, media, "owner")["claim_token"]
-    evidence = {"kind": "text", "audio": 0, "visual": 0, "pictures": 0, "times": [], "text_segments": 1, "has_media": False, "visual_mode": "none", "observations": "SYNTHETIC publicly retrieved text-post fixture, not real creator content."}
+    evidence = {"kind": "text", "audio": 0, "visual": 0, "pictures": 0, "times": [], "text_segments": 1, "has_media": False, "visual_mode": "none", "text_content": ["SYNTHETIC captured text-post fixture, not actual creator content."], "observations": "SYNTHETIC publicly retrieved text-post fixture, not real creator content."}
     assert mod.save_evidence(db, media, token, "Synthetic text post", evidence, "complete")["saved"]
     db.close()
 
@@ -180,4 +180,19 @@ def test_second_distinct_source_cannot_retarget_existing_thread(monkeypatch, tmp
     assert mod.capture_receipt(db, "two", source, "https://youtu.be/AbCdEf12345") is None
     assert db.execute("SELECT COUNT(*) FROM media").fetchone()[0] == 1
     assert db.execute("SELECT media_id FROM receipts").fetchone()[0] == first["media_id"]
+    db.close()
+
+
+def test_complete_text_requires_bounded_retained_segments_not_just_a_count(monkeypatch, tmp_path):
+    mod = load_module(monkeypatch, tmp_path)
+    db, _, media = fixture_record(mod, tmp_path)
+    token = mod.claim(db, media, "owner")["claim_token"]
+    base = {"kind": "text", "audio": 0, "visual": 0, "pictures": 0, "times": [], "text_segments": 1, "has_media": False, "visual_mode": "none", "observations": "SYNTHETIC observation alone is not captured source text."}
+    for invalid in [None, [], [""], ["   "], "not an array", ["one", "two"], [42], ["x" * 16001]]:
+        evidence = dict(base)
+        if invalid is not None:
+            evidence["text_content"] = invalid
+        assert "error" in mod.save_evidence(db, media, token, "Synthetic text", evidence, "complete"), invalid
+    evidence = dict(base, text_content=["SYNTHETIC captured source text, not real creator material."])
+    assert mod.save_evidence(db, media, token, "Synthetic text", evidence, "complete")["saved"]
     db.close()

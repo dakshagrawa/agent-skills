@@ -4,7 +4,7 @@ This is an **experimental native plugin — incomplete, not production-ready**. 
 
 ## Executed checks
 
-- Repository offline suite: **76 passed**, including legacy package contracts, strict multi-platform identity/aliases, hostile/ambiguous source rejection, case preservation, bounded titles, provenance/claims/coverage, text-only evidence, retention, native retry/source guards and inert defaults.
+- Repository offline suite: **77 passed**, including legacy package contracts, strict multi-platform identity/aliases, hostile/ambiguous source rejection, case preservation, bounded titles, provenance/claims/coverage, text-only evidence, retention, native retry/source guards and inert defaults.
 - A catalog created by the actual tagged **0.1.0 source** retains its original Instagram media ID, receipt bytes and active claim after 0.2.0 initialization. Existing native task/return bindings are not rewritten.
 - Actual **Hermes v0.22.6** Plugin Doctor: discovery, manifest, import and real tool/hook registration passed.
 - Actual native validation: security verdict `safe`, no warnings, no Python dependencies or runtime core overrides.
