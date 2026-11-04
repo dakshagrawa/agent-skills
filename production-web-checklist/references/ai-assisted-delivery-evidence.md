@@ -103,6 +103,22 @@ content.
 - [Yates website](https://yatesvids.com/). It describes the project as videos
   about vibecoding and avoiding AI slop, with a free site check.
 
+### Design workflow reel, thenickcornelius
+
+- [Design skill reel](https://www.instagram.com/reel/Der9ZYXot-j/).
+  In the reviewed caption and sampled video, the creator describes brand
+  guidelines, motion graphics, prebuilt designs, and a browser-screenshot
+  self-checking loop. The exact advertised skill, its source, and revision
+  were not recovered or tested. The creator's under-10-minute, one-prompt,
+  and $5,000-plus claims are unverified and are not guarantees or estimates.
+  General workflow learning: specify the audience, brand tokens, references,
+  and interaction states, then compare screenshots with the chosen direction.
+  Screenshots alone do not verify behavior, accessibility, security, or
+  production readiness. Independently exercise the applicable checks in the
+  parent checklist. [Claude Code's official best practices](https://code.claude.com/docs/en/best-practices)
+  describe runnable checks and comparing browser screenshots against designs;
+  they do not validate this creator's particular skill or claims.
+
 ### Requested source notes
 
 - [Design-guidance post](https://www.instagram.com/p/Ddhl5TzynaO/). The user
