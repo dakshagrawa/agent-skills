@@ -8,7 +8,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [web, design, accessibility, seo, security, performance]
-    homepage: https://github.com/dakshagrawa/agent-skills
+    homepage: https://github.com/dakshagrawa/production-web-checklist
     related_skills: []
 ---
 

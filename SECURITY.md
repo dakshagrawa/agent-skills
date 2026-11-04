@@ -9,7 +9,7 @@ boundary.
 
 Do not publish credentials, exploit details, private data, or a working
 proof-of-concept in an issue. Use GitHub's private vulnerability-reporting or
-security-advisory flow for this repository when it is available. If that flow
+security-advisory flow for `dakshagrawa/production-web-checklist` when it is available. If that flow
 is unavailable, contact the repository owner privately through GitHub and share
 only the minimum reproducible detail.
 

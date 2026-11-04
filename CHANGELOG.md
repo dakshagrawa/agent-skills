@@ -1,8 +1,16 @@
 # Changelog
 
-All notable changes to the skill packages in this repository are recorded here.
+Notable changes to this repository's skill are recorded here. Historical entries
+below are source-project history from `dakshagrawa/hermes-workflows`; Media Scout
+entries describe a separate project, now maintained at
+[`dakshagrawa/media-scout`](https://github.com/dakshagrawa/media-scout), and do
+not mean those files remain in this repository.
 
 ## Unreleased
+
+- Prepare the existing repository and `production-web-checklist` package for the
+  parent-managed slug rename to `dakshagrawa/production-web-checklist`; clarify
+  the Media Scout project split without replacing this repository's history.
 
 ### Native Media Scout 0.2.0
 
