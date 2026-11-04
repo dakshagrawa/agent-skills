@@ -1,12 +1,13 @@
 # Contributing
 
-Thanks for improving these skill packages. Keep changes small, evidence-based,
-and independently reviewable.
+Thanks for improving the `production-web-checklist` skill. Keep changes small,
+evidence-based, and independently reviewable.
 
 ## Before editing
 
 - Read the target `SKILL.md`, its tests, and the repository README.
-- Confirm the change belongs in the selected skill rather than a new package.
+- Keep product changes within the existing `production-web-checklist` package;
+  this repository is not the Media Scout plugin project.
 - Do not include credentials, private data, machine-local paths, fabricated
   claims, or unrelated formatting churn.
 
@@ -28,40 +29,16 @@ Every skill package must have:
   facts from your adaptation, and do not reproduce private data, credentials,
   or a creator's entire catalog in a skill.
 
-## Workflow templates and publication
+## Package, privacy, and attribution
 
-Keep skills in their existing top-level package directories. Put multi-profile
-topologies, inert examples and diagrams under `workflows/<name>/`; optional
-version-specific upstream patches belong under `patches/<name>/` with exact base,
-integrity metadata and upstream license. A repository rename does not authorize
-moving installed packages or editing live profiles.
-
-Write portable examples from an explicit allowlist, not a copy of a private
-profile. Exclude media, transcripts, real receipts/records, auth/config dumps,
-logs, memory, real channel/task IDs and machine-local paths. Preserve original
-authorship. Local deployment test results must be labelled as such, not as CI
-coverage or a guarantee for a new install. Keep forwarding/deletion inactive in
-public defaults until explicit local consent and qualification. Test safety
-contracts and links without live credentials or destructive CI actions.
-
-## Native plugins
-
-Keep executable extensions under `plugins/<name>/`, separate from instruction-only
-skills and workflow templates. Use documented public Hermes plugin APIs only; no
-runtime overrides of core functions, private registries or UI markup. Store runtime
-data through the native profile-scoped plugin storage helpers, outside the install
-tree. Declare the exact tools/hooks/capabilities and truthful compatibility floor.
-
-Add behavioral tests under `tests/plugins/`, with isolated state, no credentials or
-external clients, and failure/replay/concurrency coverage. Run actual native Plugin
-Doctor and catalog validation in a disposable matching SDK environment. Distinguish
-synthetic SDK acceptance from real Discord/provider/media qualification. Never
-reuse private deployment fixtures as public examples or claim an untested OS.
-
-Publish only a reviewed immutable commit after both required Ubuntu checks pass.
-Component release tags and archive hashes must match that commit. An official
-catalog submission is a separate exact-SHA PR, not a claim of maintainer admission.
-Enabling a package in a live profile is separate from publishing it.
+Keep the existing top-level skill directory and package identity. Do not move
+installed package paths or edit live profiles as part of repository maintenance.
+Exclude credentials, private data, machine-local paths, logs, memory, and
+identifying runtime configuration. Preserve authorship. Label local test results
+as local; they do not establish CI coverage or guarantee a new installation.
+Keep native security admission boundaries and require explicit user consent for
+consequential external actions. Test without live credentials or destructive
+actions.
 
 ## Local checks
 
