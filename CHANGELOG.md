@@ -8,6 +8,14 @@ not mean those files remain in this repository.
 
 ## Unreleased
 
+- Rename the repository to `dakshagrawa/production-checklist` and broaden its
+  documented scope to software production readiness, including web/apps,
+  backend, infrastructure and non-web applications, with security, testing,
+  deployment, performance and operations workflows.
+- Preserve `production-web-checklist/` unchanged. Add scope/placement rules and
+  an honest current catalog; no new domain skill or runtime installation is
+  implied by the expanded repository remit.
+
 - Prepare the existing repository and `production-web-checklist` package for the
   parent-managed slug rename to `dakshagrawa/production-web-checklist`; clarify
   the Media Scout project split without replacing this repository's history.
