@@ -1,13 +1,19 @@
 # Contributing
 
-Thanks for improving the `production-web-checklist` skill. Keep changes small,
-evidence-based, and independently reviewable.
+Thanks for improving the production-readiness skill collection. Keep changes
+small, evidence-based, and independently reviewable. Read [SCOPE.md](SCOPE.md)
+before proposing a new package; `production-web-checklist` remains the existing
+web-focused skill, not a renamed universal checklist.
 
 ## Before editing
 
 - Read the target `SKILL.md`, its tests, and the repository README.
-- Keep product changes within the existing `production-web-checklist` package;
-  this repository is not the Media Scout plugin project.
+- Use `SCOPE.md` to choose an existing skill change, a reference/template, a
+  distinct new top-level `<skill-name>/SKILL.md`, an issue, or no change. Explain
+  the verified gap and avoid duplicate skills or speculative catalog entries.
+- This repository covers web/apps and broader software production readiness:
+  security, testing, deployment, performance, operations, backend,
+  infrastructure and non-web applications. Media Scout machinery stays separate.
 - Do not include credentials, private data, machine-local paths, fabricated
   claims, or unrelated formatting churn.
 
@@ -31,8 +37,10 @@ Every skill package must have:
 
 ## Package, privacy, and attribution
 
-Keep the existing top-level skill directory and package identity. Do not move
-installed package paths or edit live profiles as part of repository maintenance.
+Keep the existing `production-web-checklist/` directory and package identity.
+For a new skill, add a real independently usable package plus its focused tests,
+linked references/templates and README catalog row; do not install it into live
+profiles as part of repository maintenance.
 Exclude credentials, private data, machine-local paths, logs, memory, and
 identifying runtime configuration. Preserve authorship. Label local test results
 as local; they do not establish CI coverage or guarantee a new installation.

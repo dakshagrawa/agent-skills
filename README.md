@@ -1,24 +1,36 @@
-# Production Web Checklist
+# Production Checklist
 
-`dakshagrawa/production-web-checklist` is the public home of one focused, reusable [Hermes Agent skill](https://github.com/NousResearch/hermes-agent) for planning, building, reviewing, and preparing websites for release.
+`dakshagrawa/production-checklist` is a collection of evidence-backed [Hermes Agent skills](https://github.com/NousResearch/hermes-agent) for software production readiness. Its scope includes web/app readiness, security, testing, deployment, performance, operations, backend services, infrastructure, and non-web applications.
 
-## Use the skill
+Repository scope is not a claim that every category already has a skill. Start with the current catalog below; propose additions only for a verified gap. See [SCOPE.md](SCOPE.md) for inclusion, placement and review rules.
 
-Read [`production-web-checklist/SKILL.md`](production-web-checklist/SKILL.md), provide relevant project context, and verify its recommendations against the implementation. It covers strategy, design, content, SEO, accessibility, privacy, security, performance, and evidence-backed delivery. It is not legal advice, a security certification, a website generator, or a guarantee of search performance.
+## Current skill catalog
 
-Install and review it using the official [Hermes skills documentation](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills) and your installation's native process. The top-level `production-web-checklist/` package path is intentionally preserved.
+| Skill | Coverage | Package |
+| --- | --- | --- |
+| `production-web-checklist` | Website strategy, design, content, SEO, accessibility, privacy, security, performance and evidence-backed delivery | [Skill instructions](production-web-checklist/SKILL.md) |
 
-## Repository history and project split
+The existing `production-web-checklist/` package name, path, version and behavior are unchanged. This repository rename does not rename or broaden that installed skill into a universal checklist. No new security/backend/infrastructure skills are claimed to ship until they have actually been reviewed and added.
 
-This repository retains the original public repository's history and existing issues/protection; it was renamed from `hermes-workflows` to `production-web-checklist`. The source project was `dakshagrawa/hermes-workflows` (formerly `dakshagrawa/agent-skills`), where this skill lived alongside a separate Media Scout project. Media Scout and its supporting assets now live in [`dakshagrawa/media-scout`](https://github.com/dakshagrawa/media-scout). The split does not replace this repository or its history.
+## Using and contributing skills
 
-The Media Scout repository's filtered Git history necessarily has different commit IDs; that is a history-filtering consequence, not replaced authorship. Original author and date attribution is preserved there, and its required package tags are retained for upgrade tests. Historical entries below describe what happened in the source project and are labelled accordingly; they do not imply those components remain here.
+Read the selected skill, provide relevant project context, and verify its recommendations against the actual implementation. Use the official [Hermes skills documentation](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills) and your installation's supported admission process. This third-party repository does not override an official-source-only installation policy.
 
-Neither repository publication nor a renamed slug automatically migrates, updates, or enables any installed skill or deployment. Review and update your own references explicitly. Do not copy live profiles, credentials, private data, or deployed configuration.
+Prefer extending an existing skill or a focused reference over creating a duplicate. Add an independently callable skill only for a distinct repeated workflow with clear prerequisites, platform limits, checkable outcomes, tests and attribution. A review of a video can motivate an issue or proposal; a creator claim alone is not authority for a new production requirement. See [contribution guidelines](CONTRIBUTING.md).
+
+The repository is not a security certification, legal/compliance advice, a deployment service or a guarantee that software is production-ready. Passing offline tests does not authorize a production action.
+
+## Repository history and separation
+
+This is the same existing public repository, retaining history, issues and protections. It was renamed from `agent-skills` to `hermes-workflows`, then `production-web-checklist`, and now `production-checklist` to reflect its broader scope. Use `https://github.com/dakshagrawa/production-checklist.git` for current remotes; GitHub currently redirects the former names, but update explicit references rather than relying indefinitely on redirects.
+
+Media Scout's plugin, profile setup, media evidence workflow and media-to-GitHub helper belong in the separate [`dakshagrawa/media-scout`](https://github.com/dakshagrawa/media-scout) repository. Production-readiness findings can be proposed here without moving the Scout machinery back into this project.
+
+A repository rename or documentation change does not install/update skills, migrate a live profile, transfer action approvals or enable integrations. Preserve original contributor authorship, licenses and historical source references. Do not copy private profiles, credentials, media records or deployment bindings into this repository.
 
 ## Development and safety
 
-Python 3.10 and 3.13 Ubuntu CI jobs run the repository checks. Run locally with Python 3.10 or newer:
+Python 3.10 and 3.13 Ubuntu CI jobs run the offline contracts. With Python 3.10 or newer:
 
 ```bash
 python -m venv .venv
@@ -27,8 +39,8 @@ bash scripts/run_tests.sh -q
 git diff --check
 ```
 
-Tests are offline contracts, not proof that a user's environment or website is safe. Read [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and [MIGRATION.md](MIGRATION.md) before contributing or changing references. Keep native security admission boundaries and explicit user consent for consequential actions; public instructions do not authorize external side effects.
+Read [SECURITY.md](SECURITY.md) and [MIGRATION.md](MIGRATION.md). Keep security admission and explicit authorization for consequential changes. New skills must have focused offline contracts and truthful documentation of what was and was not actually exercised; no certification or live acceptance may be inferred from catalog presence.
 
 ## License and attribution
 
-Repository content is provided under the [MIT License](LICENSE). Existing history and contributor attribution are preserved.
+Repository content is provided under the [MIT License](LICENSE). Existing history and contributor attribution are preserved; reused work must retain its original author and applicable license.
