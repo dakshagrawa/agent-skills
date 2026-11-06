@@ -1,7 +1,7 @@
 ---
 name: production-web-checklist
 description: "Audit web design, SEO, accessibility, and security."
-version: 0.4.0
+version: 0.4.1
 author: Daksh Agrawal (@dakshagrawa)
 license: MIT
 platforms: [linux, macos, windows]
@@ -34,13 +34,14 @@ speed while keeping a durable specification, a reviewable diff, and evidence tha
 the result works for the intended user.
 
 The source notes used to derive the AI-assisted guidance are in
-`production-web-checklist/references/ai-assisted-delivery-evidence.md`. They
+`references/ai-assisted-delivery-evidence.md`. They
 record public URLs, retrieval date, observed facts, and the narrower rules
 adapted from them without treating social content as authority. The requested
 source notes preserve caption-derived legal-risk checks, user-provided SEO and
-design transcripts, and the indexed but incomplete login-audit caption; creator
-penalty figures remain unverified examples, and SEO outcomes must be verified
-rather than promised.
+design transcripts, and the historical caption-only login-audit evidence.
+The recovered login checklist and its qualifications are recorded in
+`references/security-auth-checks.md`. Creator penalty figures remain unverified
+examples, and SEO outcomes must be verified rather than promised.
 
 ## When to Use
 
@@ -494,18 +495,21 @@ for the current built-in registry (accessed 2026-09-28).
    behavior, policy copy, and deployment; every active third party is disclosed;
    consent behavior is testable; and unresolved legal questions are listed.
 
-8. **Harden every security boundary.** Keep API keys, database URLs, tokens,
-   passwords, and credentials out of browser bundles, public files, logs, and
-   Git history. Store secrets in approved environment or deployment secret
-   stores or environment variables such as `.env`, keep `.env` and sensitive
-   configuration files in `.gitignore`, audit Git history for leaked secrets,
-   and verify public artifacts do not expose them. Never put a real secret in
-   source, fixtures, examples, or chat.
+8. **Harden every security boundary.** Classify credentials before flagging
+   exposure: privileged backend keys, credential-bearing database URLs,
+   passwords, and refresh/session secrets must not enter public artifacts,
+   logs, or Git history. Public identifiers and provider-documented publishable
+   keys are not privileged secrets; browser-held access tokens require their
+   own storage and lifetime review. Store backend secrets in approved secret
+   stores or environment variables such as `.env`, keep sensitive files in
+   `.gitignore`, audit Git history for leaked secrets, and inspect delivered
+   bundles, source maps, runtime configuration, and network responses. Never
+   paste a real secret into source, fixtures, examples, chat, or review evidence.
 
    - Force HTTPS and redirect non-secure HTTP traffic at the deployment edge on
      every route. A frontend redirect is not a substitute for edge enforcement.
    - Validate and constrain every user input on both client and server. Sanitize
-     inputs and encode output for its actual context to prevent XSS. Use parameterized
+     inputs and apply context-appropriate output encoding to prevent XSS. Use parameterized
      database APIs and verify SQL-injection resistance. Do not interpolate
      untrusted input into SQL, shell commands, HTML, or JavaScript.
    - For prompts, generated HTML, Markdown, JSON, or code, treat model output as
@@ -526,14 +530,31 @@ for the current built-in registry (accessed 2026-09-28).
      sensitive endpoints with server-side authentication and strict RBAC so a
      user can access only authorized resources.
    - Do not treat a quickly generated login screen as a secure authentication
-     system. For each sign-in and account flow, inspect the implementation and
-     test authentication, server-side authorization, session/token handling,
-     password storage or provider configuration, and abuse controls against the
-     actual architecture. For Supabase-backed apps, verify RLS is enabled and
-     policies restrict each table and operation to the intended user; confirm
-     the service-role/secret key is server-only and never shipped to the client.
-     These are baseline review areas, not a substitute for the source's
-     unprovided five-item audit prompt or a security review.
+     system. For each sign-in and account flow, test verified authentication,
+     object-level authorization, session/token handling, password storage or
+     provider configuration, and abuse controls against the actual architecture.
+     Derive caller identity from verified authentication, not a supplied user
+     ID; authorize each requested object and operation. Test anonymous access
+     and cross-user or cross-tenant ID substitution where applicable.
+   - For logout, verify the intended session scope and provider/server
+     revocation, not just local cookie deletion. An official browser SDK may
+     perform the real sign-out operation; a custom server endpoint is not
+     universally required. Record the residual access-token lifetime and test
+     the required post-logout access guarantee.
+   - Use generic authentication failures and review HTTP status, response body,
+     timing, and relevant recovery/registration flows for account enumeration.
+     Uniform visible wording alone is not proof that enumeration is prevented.
+   - Only for Supabase-backed apps: keep secret/service_role keys server-only;
+     publishable/anon keys are intentionally public. For every table in an
+     exposed schema, verify RLS together with least-privilege grants and
+     operation-specific policies. Test anonymous and authorized/unauthorized
+     users with non-privileged credentials; privileged bypass is not a policy
+     test. Supabase sign-out revokes affected refresh credentials, but existing
+     access JWTs remain valid until expiry unless additional server checks
+     enforce the required guarantee.
+   - Load `references/security-auth-checks.md` for source attribution, test
+     details, and provider caveats when reviewing these boundaries. The five
+     checks are baseline prompts, not a complete audit or proof of compromise.
    - Set HTTP security headers appropriate to the deployment, including a
      tested Content Security Policy, HSTS, X-Frame-Options or an equivalent
      frame-ancestors policy, and X-Content-Type-Options. Turn off debug mode in
@@ -808,6 +829,10 @@ source, test, build, or browser evidence:
 - [ ] Secrets are absent from public artifacts, logs, source, fixtures, and
       history; validation, authorization, CSRF, abuse controls, headers, and
       deployment boundaries are documented and tested where applicable.
+- [ ] Where authentication applies, negative object-access tests, logout scope
+      and residual token lifetime, and account-enumeration behavior have direct
+      evidence. Supabase exposed-schema grants and RLS policies are tested only
+      when that provider is actually used.
 - [ ] Pre-launch security checks cover client-delivered secrets, authentication
       and admin routes, server-side permissions, input sanitization, XSS and SQL
       injection, rate limits, CORS, HTTPS, security headers, cookies, debug

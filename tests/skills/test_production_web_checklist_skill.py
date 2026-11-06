@@ -27,7 +27,7 @@ def test_frontmatter_has_repository_contract():
     description = frontmatter["description"]
     assert description.endswith(".")
     assert len(description) <= 60
-    assert frontmatter["version"] == "0.4.0"
+    assert frontmatter["version"] == "0.4.1"
     assert frontmatter["author"].startswith("Daksh Agrawal")
     assert frontmatter["license"] == "MIT"
     assert frontmatter["platforms"] == ["linux", "macos", "windows"]
@@ -277,7 +277,7 @@ def test_skill_preserves_explicit_original_requirements():
         "inspect it at desktop and mobile widths",
         "quickly generated login screen",
         "server-side authorization",
-        "each table and operation to the intended user",
+        "operation-specific policies",
         "Harsh or rainbow gradients",
         "pure-white page background",
         "default purple- and-black themes",
@@ -311,7 +311,7 @@ def test_skill_preserves_explicit_original_requirements():
         5: ["Hero headline", "Case Study", "FAQ", "Team with real team photos", "Thank You page", "smallest useful flow", "input-to-output walkthrough"],
         6: ["Exactly one clear `<h1>` tag per page", "unique page title", "unique meta description", "canonical tags across all pages", "remove accidental `noindex` tags", "one H1 per page", "fix the broken links", "compress images", "Core Web Vitals", "Google Search Console", "ethical, quality-led backlink strategy", "LocalBusiness", "BreadcrumbList", "Generate valid `sitemap.xml`", "crawlable rendering", "cold response"],
         7: ["build standalone Privacy Policy", "form-consent opt-in checkboxes", "cookie-consent banner", "Properly set up and verify analytics tracking", "copyright licenses", "provider, model, API key boundary", "prompt or user-content transfer"],
-        8: ["Force HTTPS", "client and server", "bcrypt or Argon2", "strict RBAC", "Content Security Policy", "HSTS", "X-Frame-Options", "X-Content-Type-Options", "generated HTML", "kill switch", "quickly generated login screen", "each table and operation to the intended user"],
+        8: ["Force HTTPS", "client and server", "bcrypt or Argon2", "strict RBAC", "Content Security Policy", "HSTS", "X-Frame-Options", "X-Content-Type-Options", "generated HTML", "kill switch", "quickly generated login screen", "operation-specific policies"],
         9: ["WCAG 2.1 AA", "Keyboard operation", "Every image has an intentional alt value", "44 by 44 CSS-pixel"],
         10: ["custom-domain", "custom, helpful 404", "WebP or AVIF", "production source maps", "browser console errors", "full custom favicon set", "mobile, tablet, and desktop", "human-correction rate"],
         12: ["Strategy Snapshot", "Three Creative Directions", "Chosen Direction", "Complete Website Build and Verification", "A. Direction Name", "F. Risks and Tradeoffs", "If independent work was delegated", "checking the corresponding files"],
@@ -323,3 +323,40 @@ def test_skill_preserves_explicit_original_requirements():
 
     assert "Do not use" in steps[3]
     assert all("Complete when:" in text for text in steps.values())
+
+
+def test_auth_revision_preserves_scope_sources_and_qualifications():
+    content, frontmatter, _ = read_skill()
+    normalized = " ".join(content.split())
+    assert frontmatter["metadata"]["hermes"]["homepage"] == "https://github.com/dakshagrawa/production-web-checklist"
+    assert "`references/ai-assisted-delivery-evidence.md`" in content
+    assert "`references/security-auth-checks.md`" in content
+    for phrase in ["verified authentication", "each requested object and operation", "cross-user or cross-tenant", "residual access-token lifetime", "HTTP status, response body, timing", "Only for Supabase-backed apps", "least-privilege grants", "operation-specific policies", "remain valid until expiry"]:
+        assert phrase in normalized
+    reference = (SKILL.parent / "references" / "security-auth-checks.md").read_text(encoding="utf-8")
+    for phrase in ["PWC-AUTH-v2", "instagram_DdKWKlaSosL", "## General checks", "## Supabase-specific qualifications", "## Future additions and maintenance", "not a full security audit", "already-issued access JWTs", "until expiry", "supabase.com/docs/guides/auth/signout", "cheatsheetseries.owasp.org"]:
+        assert phrase in reference
+    assert not re.search(r"t_[0-9a-f]{8}|/home/|/Users/|discord\.com/channels/", reference)
+    evidence = (SKILL.parent / "references" / "ai-assisted-delivery-evidence.md").read_text(encoding="utf-8")
+    assert "2026-09-21" in evidence
+    assert "2026-11-02" in evidence
+    assert "[security auth checks](security-auth-checks.md)" in evidence
+    assert "offered audit prompt remains unavailable and unverified" in evidence
+
+
+def test_package_readme_documents_contributions_and_distribution():
+    readme_path = SKILL.parent / "README.md"
+    readme = readme_path.read_text(encoding="utf-8")
+    normalized = " ".join(readme.split())
+    for phrase in ["canonical URL", "primary-source verification", "provider-specific qualifications", "access-token invalidation", "offline regression tests", "frontmatter version", "author credit", "native skill security validation", "does not automatically update", "community distribution", "maintainers decide", "YAML skill bundle"]:
+        assert phrase in normalized
+    assert "bash scripts/run_tests.sh tests/skills/test_production_web_checklist_skill.py -q" in readme
+    assert "bash scripts/run_tests.sh -q" in readme
+    assert "git diff --check" in readme
+    assert not re.search(r"t_[0-9a-f]{8}|/home/|/Users/|discord\.com/channels/", readme)
+    for target in re.findall(r"\]\(([^)]+)\)", readme):
+        if target.startswith("https://"):
+            continue
+        resolved = (readme_path.parent / target).resolve()
+        assert resolved.is_relative_to(ROOT.resolve())
+        assert resolved.is_file(), target
