@@ -8,6 +8,19 @@ not mean those files remain in this repository.
 
 ## Unreleased
 
+- Add a package-local `production-web-checklist/README.md` explaining
+  source-linked contributions, provider qualifications, offline checks,
+  review and separate distribution/adoption consent; test its links and
+  contribution guidance. No official Hermes acceptance is claimed.
+
+- Update `production-web-checklist` to 0.4.1 with recovered, attributed login
+  checklist evidence and qualified checks for privileged browser secrets,
+  object authorization, Supabase exposed-schema grants/RLS, logout token
+  lifetime and account enumeration. Add a maintainable security reference and
+  offline regression coverage; normalize package-relative references. This
+  supersedes the earlier caption-only
+  evidence limitation below; no application audit or security guarantee is made.
+
 - Rename the repository to `dakshagrawa/production-checklist` and broaden its
   documented scope to software production readiness, including web/apps,
   backend, infrastructure and non-web applications, with security, testing,

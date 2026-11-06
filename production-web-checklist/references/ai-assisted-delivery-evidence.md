@@ -142,16 +142,16 @@ content.
   specify audience/content/action/assets/stack, prototype one representative
   section, and inspect desktop and mobile before extending the design. Treat
   these as contextual prompts, not universal style bans.
-- [Login-audit post](https://www.instagram.com/p/DdKWKlaSosL/). The indexed
-  caption says: “Comment AUDIT and I’ll send you the prompt that checks all five
-  in your codebase. Claude will build you a login in seconds.” The five audit
-  items and the promised prompt were not available, so they are not inferred or
-  represented as recovered content. The checklist adds a general, architecture-
-  aware auth review: test authentication, server-side authorization,
-  session/token handling, password/provider configuration, and abuse controls;
-  for Supabase, verify per-table/per-operation RLS policies and keep the
-  service-role/secret key out of browser code. These checks are operational
-  guidance, not a claim about the creator's unknown five-item list.
+- [Login-audit post](https://www.instagram.com/p/DdKWKlaSosL/). At the original
+  2026-09-21 retrieval, only the indexed caption was available: “Comment AUDIT
+  and I’ll send you the prompt that checks all five in your codebase. Claude
+  will build you a login in seconds.” The five items were not recovered then.
+  On 2026-11-02, saved full-audio transcription and sampled visuals of the
+  [same-ID reel](https://www.instagram.com/reel/DdKWKlaSosL/) supplied the
+  five-item framing. See [security auth checks](security-auth-checks.md) for
+  the attributed observations, independent qualifications, and primary sources.
+  The offered audit prompt remains unavailable and unverified; no security
+  guarantee or evidence of a real app's vulnerability follows from the reel.
 
 - [Legal-exposure reel](https://www.instagram.com/reel/DdbYNbdIP2e/?stkn=NGN4eHF6cW9ldGRk)
   by Adilet (@adilet.fndr), posted September 18, 2026. The caption warns that
